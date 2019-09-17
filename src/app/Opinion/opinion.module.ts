@@ -16,7 +16,9 @@ import {
   MatTabsModule,
   MatDialogModule,
   MatExpansionModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTableModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -43,6 +45,8 @@ import { ListadoComponent } from './listado/listado.component';
       MatDialogModule,
       MatExpansionModule,
       MatCheckboxModule,
+      MatTableModule,
+      MatPaginatorModule,
       FlexLayoutModule
   ],
   declarations: [
@@ -51,7 +55,7 @@ import { ListadoComponent } from './listado/listado.component';
   ],
   entryComponents: [ListadoComponent],
   exports: [
-     DataformComponent		
+     DataformComponent
   ]
 })
 
