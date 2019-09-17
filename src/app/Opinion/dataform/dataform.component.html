@@ -1,50 +1,40 @@
-<mat-toolbar color="secondary">
-  <button mat-button>New album</button>
-  <span fxFlex></span>
-  <button mat-icon-button>
-    <mat-icon>settings</mat-icon>
-  </button>
-  <button mat-icon-button>
-    <mat-icon>chevron_left</mat-icon>
-  </button>
-  <button mat-icon-button>
-    <mat-icon>chevron_right</mat-icon>
-  </button>
-</mat-toolbar>
 <form class="new-person-form">
-	<h3>full Rows:</h3>
-	<mat-card fxLayout="row wrap">
-		<mat-form-field fxFlexFill>
-			<input matInput placeholder="Name" fxFlex="50">
-    </mat-form-field>
-    <mat-form-field fxFlexFill>
-        <input matInput placeholder="Birthday" fxFlex="25">
-    </mat-form-field>
-    <mat-checkbox fxFlex="25">Active</mat-checkbox>
-  </mat-card>
-  <h3>50-25-25:(checkbox consumes same space as Birthday)</h3>
   <mat-card>
-      <mat-card-header>
-            Registro de Opinion
+    <mat-card-header>
+      <mat-card-title>Modulo de opinion</mat-card-title>
+      <mat-card-subtitle>Registro de peticion de opinion</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
-         <mat-form-field fxFlex="50">
-             <input matInput placeholder="Name">
-         </mat-form-field>
-         <mat-form-field fxFlex="25">
-             <input matInput placeholder="Birthday">
-         </mat-form-field>
-         <mat-checkbox fxFlex="25">Active</mat-checkbox>
+      <mat-card-content fxLayout="column">
+	<div fxLayout="row" > 
+	  <mat-label fxFlex="40" fxLayoutAlign="start center">Nombre de dependencia:</mat-label>
+	  <mat-form-field fxFlex="60" appearance = "standard">
+            <input matInput placeholder="Nombre de dependencia">
+          </mat-form-field>
+	</div>
+
+	<div fxLayout="row">
+	  <mat-label fxFlex="40" fxLayoutAlign="start center">Numero de folio:</mat-label>
+          <mat-form-field fxFlex="60" appearance = "standard">
+	    <input matInput placeholder="Numero de folio">
+          </mat-form-field>
+	</div>
+
+	<div fxLayout="row">
+	  <mat-label fxFlex="40" fxLayoutAlign="start center">Fecha de folio:</mat-label>
+	  <mat-form-field fxFlex="60" appearance = "standard">
+	    <input matInput placeholder="Fecha de folio">
+	  </mat-form-field>
+	</div>
+
+	<div fxLayout="row">
+	  <mat-label fxFlex="40" fxLayoutAlign="start center">Documento/Folio:</mat-label>
+	  <input type="file" placeholder="Carga de documento">
+	</div>
+
+	<div fxLayout="row" fxLayoutAlign="end center">
+	  <button mat-raised-button color="primary"><mat-icon>save</mat-icon>Registrar opinion</button>
+	</div>
+	
       </mat-card-content>
-  </mat-card>
-  <h3>50-remaining-required:(Birthday consumes remaining space)</h3>
-  <mat-card fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="15px">
-      <mat-form-field fxFlex="50">
-          <input matInput placeholder="Name">
-      </mat-form-field>
-      <mat-form-field fxFlex>
-          <input matInput placeholder="Birthday">
-      </mat-form-field>
-      <mat-checkbox>Active</mat-checkbox>
   </mat-card>
 </form>

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dataform',
+  selector: 'proyecto-dataform',
   templateUrl: './dataform.component.html',
   styleUrls: ['./dataform.component.scss']
 })
-export class DataformComponent implements OnInit {
+export class ProyectoDataformComponent implements OnInit {
 
   constructor() { }
 

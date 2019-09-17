@@ -15,10 +15,18 @@ export const AppRoutes: Routes = [
         path: 'apps',
         loadChildren: './apps/apps.module#AppsModule'
       },
-	  {
-        path: 'opinion',
+      {
+	path:'',
+	loadChildren: './Proyectos/proyecto.module#ProyectoModule'
+      },
+      {
+        path: '',
         loadChildren: './Opinion/opinion.module#OpinionModule'
       },
+      {
+	path: '',
+	loadChildren: './Medidas/medidas.module#MedidasModule'
+      }
     ]
   },
   {

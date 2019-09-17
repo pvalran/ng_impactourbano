@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dataform',
+  selector: 'opinion-dataform',
   templateUrl: './dataform.component.html',
   styleUrls: ['./dataform.component.scss']
 })

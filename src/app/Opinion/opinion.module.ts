@@ -49,7 +49,10 @@ import { ListadoComponent } from './listado/listado.component';
 	DataformComponent,
 	ListadoComponent
   ],
-  entryComponents: [ListadoComponent]
+  entryComponents: [ListadoComponent],
+  exports: [
+     DataformComponent		
+  ]
 })
 
 export class OpinionModule { }

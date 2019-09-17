@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dataform.component.html',
   styleUrls: ['./dataform.component.scss']
 })
-export class DataformComponent implements OnInit {
+export class MedidasDataformComponent implements OnInit {
 
   constructor() { }
 

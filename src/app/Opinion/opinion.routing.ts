@@ -6,7 +6,7 @@ import { ListadoComponent } from './listado/listado.component';
 
 export const AppsRoutes: Routes = [
   {
-    path: '',
+    path: 'opinion',
     children: [
       {
         path: 'registro',
