@@ -1,2 +1,6 @@
-eclipse.preferences.version=1
+	eclipse.preferences.version=1
+<<<<<<< HEAD
 prefer-global-node-apps=true
+=======
+local-npm-version=6.4.1
+>>>>>>> 8b5fb5d460392a444d904109a209d59daccdfa4f
