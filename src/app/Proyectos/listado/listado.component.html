@@ -8,10 +8,10 @@
          <mat-form-field>
            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
          </mat-form-field>
-         <a mat-icon-button routerLink="/proyecto/registro">
+         <a mat-icon-button  routerLink="/proyecto/registro">
            <mat-icon>add_box</mat-icon>
          </a>
-      </div>
+		</div>
       <table mat-table #table [dataSource]="dataSource" matSort>
 
         <!-- Position Column -->
