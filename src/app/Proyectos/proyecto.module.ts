@@ -20,7 +20,8 @@ import {
   MatExpansionModule,
   MatCheckboxModule,
   MatTableModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatTooltipModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -52,6 +53,7 @@ import { ProyectoDetalleComponent } from './detalle/detalle.component';
       MatCheckboxModule,
       MatTableModule,
       MatPaginatorModule,
+      MatTooltipModule,
       FlexLayoutModule,
       OpinionModule
      
