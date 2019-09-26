@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 
 
 import {
@@ -20,6 +22,7 @@ import {
   MatExpansionModule,
   MatCheckboxModule,
   MatTableModule,
+
   MatPaginatorModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -50,6 +53,7 @@ import { MedidasListadoComponent } from './listado/listado.component';
       MatCheckboxModule,
       MatTableModule,
       MatPaginatorModule,
+       CKEditorModule,
       FlexLayoutModule,
   ],
   exports:[

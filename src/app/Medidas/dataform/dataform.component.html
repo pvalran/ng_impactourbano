@@ -1,3 +1,44 @@
-<p>
-  dataform works!
-</p>
+<form class="new-person-form">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Modulo de medidas de integracion</mat-card-title>
+      <mat-card-subtitle>Registro de medida de integracion</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content fxLayout="column">
+      <div fxLayout="row" >
+        <mat-label fxFlex="40" fxLayoutAlign="start center">Nombre de dependencia:</mat-label>
+        <mat-form-field fxFlex="60" appearance = "standard">
+          <input matInput placeholder="Nombre de dependencia">
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row">
+        <mat-label fxFlex="40" fxLayoutAlign="start center">Numero de folio:</mat-label>
+        <mat-form-field fxFlex="60" appearance = "standard">
+          <input matInput placeholder="Numero de folio">
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row">
+        <mat-label fxFlex="40" fxLayoutAlign="start center">Fecha de folio:</mat-label>
+        <mat-form-field fxFlex="60" appearance = "standard">
+          <input matInput placeholder="Fecha de folio">
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row">
+        <mat-label fxFlex="40" fxLayoutAlign="start center">Documento/Folio:</mat-label>
+        <input type="file" placeholder="Carga de documento">
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
+
+      <div fxLayout="row" fxLayoutAlign="end center">
+        <button mat-raised-button color="primary"><mat-icon>save</mat-icon>Registrar medida de integracion</button>
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</form>
