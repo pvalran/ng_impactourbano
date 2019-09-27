@@ -1,0 +1,16 @@
+<h3 mat-dialog-title>Captura de seguimiento de medida de integracion</h3>
+<mat-dialog-content>
+    <mat-form-field fxLayout="row" fxLayoutAlign="start center">
+        <mat-label>Trimestre de captura</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let trimestre of trimestres" [value]="trimestre.value"> {{ trimestre.display}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <ckeditor [editor]="Editor" data="<p>Hello, world!</p>" (ready)="onReady($event)"></ckeditor>
+</mat-dialog-content>
+
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+    <button class="mat-raised-button"(click)="close()">Cerrar</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Registrar</button>
+</mat-dialog-actions>
+

@@ -27,6 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppsRoutes } from './proyecto.routing';
 import { OpinionModule } from '../Opinion/opinion.module';
+import { MedidasModule } from '../Medidas/medidas.module';
 import { ProyectoDataformComponent } from './dataform/dataform.component';
 import { ProyectoListadoComponent } from './listado/listado.component';
 import { ProyectoDetalleComponent } from './detalle/detalle.component';
@@ -55,7 +56,8 @@ import { ProyectoDetalleComponent } from './detalle/detalle.component';
       MatPaginatorModule,
       MatTooltipModule,
       FlexLayoutModule,
-      OpinionModule
+      OpinionModule,
+       MedidasModule
      
   ],
   exports:[

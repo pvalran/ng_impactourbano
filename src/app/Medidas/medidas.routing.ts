@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { MedidasDataformComponent } from './dataform/dataform.component';
 import { MedidasListadoComponent } from './listado/listado.component';
+import { MedidasSeguimientoComponent} from './seguimiento/seguimiento.component';
 
 export const AppsRoutes: Routes = [
   {
@@ -10,10 +11,12 @@ export const AppsRoutes: Routes = [
       {
         path: 'registro',
         component: MedidasDataformComponent
-      },
-      {
+      }, {
         path: 'listado',
         component: MedidasListadoComponent
+      }, {
+        path: 'seguimiento',
+        component: MedidasSeguimientoComponent
       }
     ]
   }
