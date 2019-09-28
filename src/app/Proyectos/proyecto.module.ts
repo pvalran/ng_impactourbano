@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-
 import {
   MatToolbarModule,
   MatIconModule,
@@ -64,10 +63,9 @@ import { ProyectoDetalleComponent } from './detalle/detalle.component';
    MatTableModule
   ],
   declarations: [
-        		
-	ProyectoDataformComponent,
-	ProyectoListadoComponent,
-	ProyectoDetalleComponent
+      ProyectoDataformComponent,
+      ProyectoListadoComponent,
+      ProyectoDetalleComponent
   ],
  
   entryComponents: [ProyectoListadoComponent]
