@@ -6,3 +6,4 @@ export * from './notification/notification.component';
 export * from './menu/menu.component';
 export * from './menu-accordion';
 export * from './options/options.component';
+export * from './login/login.component';

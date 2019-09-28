@@ -28,7 +28,10 @@ import {
   MatListModule,
   MatSlideToggleModule,
   MatSelectModule,
-  MatProgressBarModule
+  MatProgressBarModule,
+  MatDialogModule,
+  MatInputModule,
+  MatTableModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BidiModule } from '@angular/cdk/bidi';
@@ -43,11 +46,13 @@ import {
   AuthLayoutComponent,
   AccordionAnchorDirective,
   AccordionLinkDirective,
-  AccordionDirective
+  AccordionDirective,
 } from './core';
 
 import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './core/login/login.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -73,6 +78,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AccordionAnchorDirective,
     AccordionLinkDirective,
     AccordionDirective,
+    LoginComponent,
+
     
   ],
   imports: [
@@ -101,6 +108,10 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatSlideToggleModule,
     MatSelectModule,
     MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatInputModule,
+    MatTableModule,
     FlexLayoutModule,
     BidiModule,
     AgmCoreModule.forRoot({

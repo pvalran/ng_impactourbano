@@ -18,7 +18,7 @@ const ELEMENT_DATA: PeriodicElement[] =  [
 ]
 
 @Component({
-  selector: 'medidas-listado',
+  selector: 'opinion-listado',
   templateUrl: './listado.component.html',
   styleUrls: ['./listado.component.scss']
 })

@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Dictamen de impacto urbano</span>
+
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <mat-icon>dialpad</mat-icon>
+                <span>Iniciar session</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Iniciar seccion</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form>
+            <table cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <mat-form-field>
+                            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="login()" color="primary">Login</button>
+    </mat-card-actions>
+</mat-card>
+

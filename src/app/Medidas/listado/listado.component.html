@@ -8,7 +8,7 @@
          <mat-form-field>
            <input matInput  placeholder="Buscar">
          </mat-form-field>
-         <a mat-icon-button routerLink="/proyecto/registro">
+         <a mat-icon-button routerLink="/medida/registro">
            <mat-icon>add_box</mat-icon>
          </a>
       </div>
@@ -40,8 +40,8 @@
                 <mat-list-item *ngFor="let medida of element.medidas">
                   <mat-icon matListIcon>folder</mat-icon>
                   <h3 matLine> {{ medida.descripcion }}</h3>
-                  
-                  <a mat-icon-button>
+
+                    <a mat-icon-button routerLink="/medida/seguimiento">
                     <mat-icon>art_track</mat-icon>
                   </a>
                   
