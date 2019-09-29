@@ -5,6 +5,11 @@
   <div class="branding">
     <div>Dictamen de impacto urbano</div>
   </div>
+  <mat-nav-list class="horizontal">
+    <a mat-list-item routerLink="/proyecto/listado">Impacto urbano </a>
+    <a mat-list-item routerLink="/medida/listado">Medidas de integracion</a>
+    <a mat-list-item>Reportes</a>
+  </mat-nav-list>
   <span>&nbsp;</span>
   <span fxFlex></span>
   
@@ -21,19 +26,19 @@
   <mat-menu #user="matMenu" x-position="before">
     <button mat-menu-item>
       <mat-icon>settings</mat-icon>
-      Settings
+      Configuracion
     </button>
     <button mat-menu-item>
       <mat-icon>account_box</mat-icon>
-      Profile
+      Perfil
     </button>
     <button mat-menu-item>
       <mat-icon>notifications_off</mat-icon>
-      Disable notifications
+      Notificaciones
     </button>
     <button mat-menu-item>
       <mat-icon>exit_to_app</mat-icon>
-      Sign Out
+      Cerrar sesión
     </button>
   </mat-menu>
 </mat-toolbar>

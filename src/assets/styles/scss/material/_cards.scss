@@ -3,10 +3,10 @@
 $mat-card-header-size: 40px !default;
 
 body {
-    .mat-card {
+	.mat-card {
 		margin: ($gutter/3);
 		@include mat-elevation(1);
-		color: #7343BE;
+		color: #1C1C1C;
 		padding: 0px;
 
 		> :first-child {
@@ -23,7 +23,13 @@ body {
 			-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 			box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 			padding-top: 12px;
+			
+			.mat-icon-button {
+				color: white !important;
+			}
 		}
+
+		
 
 		.mat-card-content {
 			margin-top: 10px;
@@ -87,7 +93,6 @@ body {
 
 		&.card-widget {
 			padding: 20px;
-
 			.card-widget-content {
 			display: flex;
 			flex-direction: row;
@@ -95,7 +100,7 @@ body {
 			margin: -($gutter/2) 0 $gutter 0;
 			}
 		}
-    }
+	}
 }
 
 body [dir="rtl"] {

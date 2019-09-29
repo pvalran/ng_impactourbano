@@ -1,5 +1,6 @@
 import {Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { Location } from '@angular/common';
 
 export interface Medida {
   descripcion: string;
@@ -18,11 +19,11 @@ const ELEMENT_DATA: PeriodicElement[] =  [
     opinion: '10/20',
     porcentaje: '50',
     medidas: [
-      {descripcion:'Medidas uno'},
-      {descripcion:'Medidas dos'},
-      {descripcion:'Medidas tres'},
-      {descripcion:'Medidas cuatro'},
-      {descripcion:'Medidas cinco'}
+      {descripcion:'Categoria uno'},
+      {descripcion:'Categoria dos'},
+      {descripcion:'Categoria tres'},
+      {descripcion:'Categoria cuatro'},
+      {descripcion:'Categoria cinco'}
     ]
   },
   {
@@ -30,11 +31,11 @@ const ELEMENT_DATA: PeriodicElement[] =  [
     opinion: '5/15',
     porcentaje: '30',
     medidas: [
-      {descripcion:'Medidas uno'},
-      {descripcion:'Medidas dos'},
-      {descripcion:'Medidas tres'},
-      {descripcion:'Medidas cuatro'},
-      {descripcion:'Medidas cinco'}
+      {descripcion:'Categoria uno'},
+      {descripcion:'Categoria dos'},
+      {descripcion:'Categoria tres'},
+      {descripcion:'Categoria cuatro'},
+      {descripcion:'Categoria cinco'}
     ]
 
   },
@@ -43,11 +44,11 @@ const ELEMENT_DATA: PeriodicElement[] =  [
     opinion: '1/10',
     porcentaje: '10',
     medidas: [
-      {descripcion:"Medidas uno"},
-      {descripcion:"Medidas dos"},
-      {descripcion:"Medidas tres"},
-      {descripcion:"Medidas cuatro"},
-      {descripcion:"Medidas cinco"}
+      {descripcion:"Categoria uno"},
+      {descripcion:"Categoria dos"},
+      {descripcion:"Categoria tres"},
+      {descripcion:"Categoria cuatro"},
+      {descripcion:"Categoria cinco"}
     ]
 
   },
@@ -56,11 +57,11 @@ const ELEMENT_DATA: PeriodicElement[] =  [
     opinion: '4/5',
     porcentaje: '90',
     medidas: [
-      {descripcion:"Medidas uno"},
-      {descripcion:"Medidas dos"},
-      {descripcion:"Medidas tres"},
-      {descripcion:"Medidas cuatro"},
-      {descripcion:"Medidas cinco"}
+      {descripcion:"Categoria uno"},
+      {descripcion:"Categoria dos"},
+      {descripcion:"Categoria tres"},
+      {descripcion:"Categoria cuatro"},
+      {descripcion:"Categoria cinco"}
     ]
   },
 ];
@@ -81,8 +82,12 @@ export class MedidasListadoComponent implements OnInit {
    dataSource = ELEMENT_DATA;
    columnsToDisplay = ['nombre', 'opinion', 'porcentaje'];
    expandedElement: PeriodicElement;
-   constructor() { }
+   constructor(private location: Location) { }
 
    ngOnInit() {
    }
+
+  navigateBack() {
+    this.location.back();
+  }
 }

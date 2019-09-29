@@ -2,7 +2,11 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>Modulo de Impacto Urbano</mat-card-title>
-      <mat-card-subtitle>Registro de impacto urbano</mat-card-subtitle>
+			<mat-card-subtitle>Registro de impacto urbano</mat-card-subtitle>
+			<span fxFlex></span>
+			<button mat-icon-button (click)="navigateBack()">
+				<mat-icon>keyboard_arrow_left</mat-icon>
+			</button>
     </mat-card-header>
     <mat-card-content>
       <mat-tab-group>
@@ -10,7 +14,7 @@
 	  <div fxLayout="row">
 	    <mat-form-field fxFlex="100">
 	      <mat-label>ANALISTA DEIU</mat-label>
-	      <input matInput placeholder="Analista deiu" />
+	      <input matInput placeholder="Analista deiu" disabled value="Pedro Alberto Valdes Rangel"/>
 	    </mat-form-field>
 	  </div>
 
