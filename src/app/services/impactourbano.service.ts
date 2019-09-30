@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 export interface UrbanoInterface {
     urbano: string,
-    analistadeiu: string,
+    analista_deiu: string,
     folio_ingreso          : string,
     fecha_ingreso          : string,
     consecutivo_dgu        : string,
@@ -48,7 +48,7 @@ export interface UrbanoInterface {
 })
 export class impactourbanoservice {
 
-    public data:<UrbanoInterface>[] = [
+    public data:Array<UrbanoInterface> = [
         {
             urbano:"1",
             analista_deiu:'Cecilia',
@@ -133,9 +133,9 @@ export class impactourbanoservice {
         }
     ];
 
-    public dataSelected:<UrbanoInterface> = {
+    public dataSelected:UrbanoInterface = {
         urbano: "",
-        analistadeiu: "",
+        analista_deiu: "",
         folio_ingreso: "",
         fecha_ingreso: "",
         consecutivo_dgu: "",
