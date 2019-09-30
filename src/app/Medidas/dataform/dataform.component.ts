@@ -4,7 +4,8 @@ import { Location } from '@angular/common';
 
 export interface categoria {
   value: number,
-  display: string
+  display: string,
+
 };
 
 export interface dependencia {
@@ -23,10 +24,14 @@ export class MedidasDataformComponent implements OnInit {
   public categorias: categoria[];
 
   public onReady(editor) {
-    editor.ui.getEditableElement().parentElement.insertBefore(
+      const htmlEditor = editor.ui.getEditableElement();
+      htmlEditor.parentElement.insertBefore(
         editor.ui.view.toolbar.element,
         editor.ui.getEditableElement()
-    );
+      );
+
+      htmlEditor.setA
+      console.log(htmlEditor);
   }
 
   constructor(private location: Location) {

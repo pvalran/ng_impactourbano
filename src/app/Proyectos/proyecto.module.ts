@@ -30,6 +30,7 @@ import { MedidasModule } from '../Medidas/medidas.module';
 import { ProyectoDataformComponent } from './dataform/dataform.component';
 import { ProyectoListadoComponent } from './listado/listado.component';
 import { ProyectoDetalleComponent } from './detalle/detalle.component';
+import { MAT_LABEL_GLOBAL_OPTIONS } from "@angular/material/core";
 
 @NgModule({
    imports: [
@@ -67,7 +68,9 @@ import { ProyectoDetalleComponent } from './detalle/detalle.component';
       ProyectoListadoComponent,
       ProyectoDetalleComponent
   ],
- 
+  providers: [
+      {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'always'}}
+  ],
   entryComponents: [ProyectoListadoComponent]
 })
 

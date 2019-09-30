@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.mat-tab-body{
+  padding: 24px 12px;
+}
+
 .app-dark .mat-tab-label {
   color: mat-color($dark-foreground, base);
 }

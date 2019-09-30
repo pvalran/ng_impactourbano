@@ -1,233 +1,227 @@
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>Modulo de Impacto Urbano</mat-card-title>
+		<mat-card-subtitle>Registro de impacto urbano</mat-card-subtitle>
+		<span fxFlex></span>
+		<button mat-icon-button (click)="navigateBack()">
+			<mat-icon>keyboard_arrow_left</mat-icon>
+		</button>
+	</mat-card-header>
+	<mat-card-content>
+		<mat-tab-group>
+			<mat-tab label="SOLICITUD">
+				<div fxLayout="row">
+					<mat-form-field fxFlex="100">
+						<mat-label>ANALISTA DEIU</mat-label>
+					    <input matInput placeholder="Analista deiu"/>
+					</mat-form-field>
+			    </div>
+				<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+				    <mat-form-field fxFlex="50" fxFlex.xs="100">
+					    <mat-label>FOLIO DE INGRESO</mat-label>
+					    <input matInput placeholder="FOLIO DE INGRESO" />
+				    </mat-form-field>
+					<mat-form-field fxFlex="50" fxFlex.xs="100">
+						<mat-label>FECHA DE INGRESO</mat-label>
+					    <input matInput placeholder="FECHA DE INGRESO" />
+				    </mat-form-field>
+				</div>
 
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Modulo de Impacto Urbano</mat-card-title>
-			<mat-card-subtitle>Registro de impacto urbano</mat-card-subtitle>
-			<span fxFlex></span>
-			<button mat-icon-button (click)="navigateBack()">
-				<mat-icon>keyboard_arrow_left</mat-icon>
-			</button>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-tab-group>
-	<mat-tab label="SOLICITUD">
-	  <div fxLayout="row">
-	    <mat-form-field fxFlex="100">
-	      <mat-label>ANALISTA DEIU</mat-label>
-	      <input matInput placeholder="Analista deiu" disabled value="Pedro Alberto Valdes Rangel"/>
-	    </mat-form-field>
-	  </div>
+			    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+				    <mat-form-field fxFlex="50"  fxFlex.xs="100">
+				        <mat-label>CONSECUTIVO DGU</mat-label>
+				        <input matInput placeholder="CONSECUTIVO DGU" />
+				    </mat-form-field>
+				    <mat-form-field fxFlex="50" fxFlex.xs="100">
+				        <mat-label>CUENTA CATASTRAL</mat-label>
+				        <input matInput placeholder="CUENTA CATASTRAL" />
+				    </mat-form-field>
+			    </div>
 
-	  <div fxLayout="row" fxLayoutGap="10px">
-	   <mat-form-field fxFlex="50">
-	      <mat-label>FOLIO DE INGRESO</mat-label>
-	      <input matInput placeholder="FOLIO DE INGRESO" />
-	   </mat-form-field>
-           <mat-form-field fxFlex="50">
-	      <mat-label>FECHA DE INGRESO</mat-label>
-	      <input matInput placeholder="FECHA DE INGRESO" />
-	   </mat-form-field>	  
-	  </div>
+			    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+				    <mat-form-field fxFlex="50" fxFlex.xs="100">
+				        <mat-label>MODALIDAD DE TRAMITE</mat-label>
+				        <input matInput placeholder="MODALIDAD DE TRAMITE" />
+				    </mat-form-field>
+				    <mat-form-field fxFlex="50" fxFlex.xs="100">
+				        <mat-label>TIPO DE OBRA</mat-label>
+				        <input matInput placeholder="TIPO DE OBRA" />
+					</mat-form-field>
+			    </div>
 
-	  <div fxLayout="row" fxLayoutGap="10px">
-	     <mat-form-field fxFlex="50">
-	       <mat-label>CONSECUTIVO DGU</mat-label>
-	       <input matInput placeholder="CONSECUTIVO DGU" />
-	     </mat-form-field>
-	     <mat-form-field fxFlex="50">
-	       <mat-label>CUENTA CATASTRAL</mat-label>
-	       <input matInput placeholder="CUENTA CATASTRAL" />
-	     </mat-form-field>
-	  </div>
+			    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+				    <mat-form-field fxFlex="50" fxFlex.xs="100">
+				        <mat-label>CALLE</mat-label>
+				        <input matInput placeholder="CALLE" />
+				    </mat-form-field>
+				    <mat-form-field fxFlex="50" fxFlex.xs="100">
+				        <mat-label>NUMERO OFICIAL</mat-label>
+				        <input matInput placeholder="NUMERO OFICIAL" />
+				    </mat-form-field>
+			    </div>
 
-	  <div fxLayout="row" fxLayoutGap="10px">
-	     <mat-form-field fxFlex="50">
-	       <mat-label>MODALIDAD DE TRAMITE</mat-label>
-	       <input matInput placeholder="MODALIDAD DE TRAMITE" />
-	     </mat-form-field>
-	     <mat-form-field fxFlex="50">
-	       <mat-label>TIPO DE OBRA</mat-label>
-	       <input matInput placeholder="TIPO DE OBRA" />
-	    </mat-form-field>
-	  </div>
+			    <div fxLayout="row">
+					<mat-form-field fxFlex="100">
+				        <mat-label>COLONIA</mat-label>
+				        <input matInput placeholder="COLONIA" />
+					</mat-form-field>
+			    </div>
 
-	  <div fxLayout="row" fxLayoutGap="10px">
-	     <mat-form-field fxFlex="50">
-	       <mat-label>CALLE</mat-label>
-	       <input matInput placeholder="CALLE" />
-	     </mat-form-field>
-	     <mat-form-field fxFlex="50">
-	       <mat-label>NUMERO OFICIAL</mat-label>
-	       <input matInput placeholder="NUMERO OFICIAL" />
-	     </mat-form-field>
-	  </div>
+			    <div fxLayout="row">
+					<mat-form-field fxFlex="100">
+				        <mat-label>ALCALDIA</mat-label>
+				        <input matInput placeholder="ALCALDIA" />
+					</mat-form-field>
+			    </div>
 
-	  <div fxLayout="row">
-	    <mat-form-field fxFlex="100">
-	      <mat-label>COLONIA</mat-label>
-	      <input matInput placeholder="COLONIA" />
-	    </mat-form-field>
-	  </div>
+			    <div fxLayout="row">
+					<mat-form-field fxFlex="100">
+				        <mat-label>DENOMINACION DEL PROYECTO</mat-label>
+				        <input matInput placeholder="DENOMINACION DEL PROYECTO" />
+					</mat-form-field>
+			    </div>
+			</mat-tab>
+			<mat-tab label="SOLICITANTE">
+				<form fxLayout="column">
+					<mat-form-field fxFlex="100">
+				        <mat-label>RAZON SOCIAL</mat-label>
+				        <input matInput placeholder="RAZON SOCIAL" />
+					</mat-form-field>
+					<mat-form-field fxFlex="100">
+				        <mat-label>REPRESENTANTE LEGAL</mat-label>
+				        <input matInput placeholder="REPRESENTANTE LEGAL" />
+					</mat-form-field>
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+					    <mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>DIRECTOR RESPONSABLE DE OBRA</mat-label>
+							<input matInput placeholder="DIRECTOR RESPONSALBE DE OBRA" />
+					    </mat-form-field>
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>REGISTRO DRO</mat-label>
+							<input matInput placeholder="REGISTRO DRO" />
+					    </mat-form-field>
+					</div>
+					<div fxLayout="row" fxLayout.xs="column"  fxLayoutGap="10px">
+					    <mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>CORRESPONSAL PDU</mat-label>
+							<input matInput placeholder="CORRESPONSAL PDU" />
+					    </mat-form-field>
 
-	  <div fxLayout="row">
-	    <mat-form-field fxFlex="100">
-	      <mat-label>ALCALDIA</mat-label>
-	      <input matInput placeholder="ALCALDIA" />
-	    </mat-form-field>
-	  </div>
+					    <mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>REGISTRO PDU</mat-label>
+							<input matInput placeholder="REGISTRO PDU" />
+					    </mat-form-field>
+					</div>
+			    </form>
+			</mat-tab>
+			<mat-tab label="NORMATIVIDAD">
+				<form fxLayout="column">
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50">
+							<mat-label>USO DEL PROYECTO</mat-label>
+							<input matInput placeholder="USO DEL PROYECTO" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50">
+							<mat-label>ZONIFICACION CUS</mat-label>
+							<input matInput placeholder="ZONIFICACION CUS" />
+						</mat-form-field>
+					</div>
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50">
+							<mat-label>INSTRUMENTO NORMATIVO</mat-label>
+							<input matInput placeholder="INSTRUMENTO NORMATIVO" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50">
+							<mat-label>NIVELES S.N.B PERMITIDOS</mat-label>
+							<input matInput placeholder="NIVELES S.N.B PERMITIDOS" />
+						</mat-form-field>
+					</div>
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50">
+							<mat-label>M2 PREDIO</mat-label>
+							<input matInput placeholder="M2 PREDIO" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50">
+							<mat-label>SUPERFICIE MAXIMA DE CONSTRUCCION</mat-label>
+							<input matInput placeholder="SUPERFICIE MAXIMA DE CONSTRUCCION" />
+						</mat-form-field>
+					</div>
+				</form>
+			</mat-tab>
+			<mat-tab label="PROYECTO">
+				<form fxLayout="column">
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+					        <mat-label>NIVELES S.N.B</mat-label>
+					        <input matInput placeholder="NIVELES S.N.B" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>M2 CONSTRUCCION S.N.B (CUS)</mat-label>
+							<input matInput placeholder="M2 CONSTRUCCION S.N.B (CUS)" />
+						</mat-form-field>
+					</div>
+					<div fxLayout="row"  fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+					        <mat-label>NIVELES B.N.B</mat-label>
+					        <input matInput placeholder="NIVELES B.N.B" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>M2 CONSTRUCCION B.N.B</mat-label>
+							<input matInput placeholder="M2 CONSTRUCCION B.N.B" />
+						</mat-form-field>
+					</div>
+					<div fxLayout="row"  fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+					        <mat-label>NUMERO DE VIVIENDAS</mat-label>
+					        <input matInput placeholder="NUMERO DE VIVIENDAS" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>M2 CONSTRUCCION TOTAL</mat-label>
+							<input matInput placeholder="M2 CONSTRUCCION TOTAL" />
+						</mat-form-field>
+					</div>
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+					        <mat-label>CAJONES DE ESTACIONAMIENTO</mat-label>
+					        <input matInput placeholder="CAJONES DE ESTACIONAMIENTO" />
+						</mat-form-field>
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>BICIESTACIONAMIENTO</mat-label>
+							<input matInput placeholder="BICIESTACIONAMIENTO" />
+						</mat-form-field>
+					</div>
+				</form>
+			</mat-tab>
+			<mat-tab label="GENERALES">
+				<form fxLayout="column">
+					<mat-form-field fxFlex="100">
+						<mat-label>ASOCIACION O CAMARA</mat-label>
+					    <input matInput placeholder="ASOCIACION O CAMARA" />
+					</mat-form-field>
 
-	  <div fxLayout="row">
-	    <mat-form-field fxFlex="100">
-	      <mat-label>DENOMINACION DEL PROYECTO</mat-label>
-	      <input matInput placeholder="DENOMINACION DEL PROYECTO" />
-	    </mat-form-field>
-	  </div>
-	</mat-tab>
-	<mat-tab label="SOLICITANTE">
-	  <form fxLayout="column">
-	    <mat-form-field fxFlex="100">
-	      <mat-label>RAZON SOCIAL</mat-label>
-	      <input matInput placeholder="RAZON SOCIAL" />
-	    </mat-form-field>
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>POLIGONO DE ACTUACION</mat-label>
+							<input matInput placeholder="POLIGONO DE ACTUACION" />
+					    </mat-form-field>
+					    <mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>PROYECTO DE DESARROLLO URBANO</mat-label>
+							<input matInput placeholder="PROYECTO DE DESARROLLO URBANO" />
+					    </mat-form-field>
+					</div>
 
-	    <mat-form-field fxFlex="100">
-	      <mat-label>REPRESENTANTE LEGAL</mat-label>
-	      <input matInput placeholder="REPRESENTANTE LEGAL" />
-	    </mat-form-field>
-
-	    <div fxLayout="row" fxLayoutGap="10px">
-	      <mat-form-field fxFlex="50">
-		<mat-label>DIRECTOR RESPONSABLE DE OBRA</mat-label>
-		<input matInput placeholder="DIRECTOR RESPONSALBE DE OBRA" />
-	      </mat-form-field>
-
-	      <mat-form-field fxFlex="50">
-		<mat-label>REGISTRO DRO</mat-label>
-		<input matInput placeholder="REGISTRO DRO" />
-	      </mat-form-field>
-	    </div>
-
-	    <div fxLayout="row" fxLayoutGap="10px">
-	      <mat-form-field fxFlex="50">
-		<mat-label>CORRESPONSAL PDU</mat-label>
-		<input matInput placeholder="CORRESPONSAL PDU" />
-	      </mat-form-field>
-
-	      <mat-form-field fxFlex="50">
-		<mat-label>REGISTRO PDU</mat-label>
-		<input matInput placeholder="REGISTRO PDU" />
-	      </mat-form-field>
-	    </div>
-	  </form>
-	</mat-tab>
-	<mat-tab label="NORMATIVIDAD">
-	  <form fxLayout="column">
-	    <div fxLayout="row" fxFlex="100" fxLayoutGap="10px">
-	      <div fxFlex="50" fxLayout="column">
-		<mat-form-field fxFlex="100">
-		  <mat-label>USO DEL PROYECTO</mat-label>
-		  <input matInput placeholder="USO DEL PROYECTO" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>ZONIFICACION CUS</mat-label>
-		  <input matInput placeholder="ZONIFICACION CUS" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>INSTRUMENTO NORMATIVO</mat-label>
-		  <input matInput placeholder="INSTRUMENTO NORMATIVO" />
-		</mat-form-field>
-	      </div>
-	      <div fxFlex="50" fxLayout="column">
-		<mat-form-field>
-		  <mat-label>M2 PREDIO</mat-label>
-		  <input matInput placeholder="M2 PREDIO" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>SUPERFICIE MAXIMA DE CONSTRUCCION</mat-label>
-		  <input matInput placeholder="SUPERFICIE MAXIMA DE CONSTRUCCION" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>NIVELES S.N.B PERMITIDOS</mat-label>
-		  <input matInput placeholder="NIVELES S.N.B PERMITIDOS" />
-		</mat-form-field>
-	      </div>
-	    </div>
-	  </form>
-	</mat-tab>
-	<mat-tab label="PROYECTO">
-	  <form fxLayout="column">
-	    <div fxFlex="100" fxLayout="row" fxLayoutGap="10px">
-	      <div fxFlex="50" fxLayout="column">
-		<mat-form-field fxFlex="100">
-		  <mat-label>NIVELES S.N.B</mat-label>
-		  <input matInput placeholder="NIVELES S.N.B" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>NIVELES B.N.B</mat-label>
-		  <input matInput placeholder="NIVELES B.N.B" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>NUMERO DE VIVIENDAS</mat-label>
-		  <input matInput placeholder="NUMERO DE VIVIENDAS" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>CAJONES DE ESTACIONAMIENTO</mat-label>
-		  <input matInput placeholder="CAJONES DE ESTACIONAMIENTO" />
-		</mat-form-field>
-	      </div>
-	      <div fxFlex="50" fxLayout="column">
-		<mat-form-field fxFlex="100">
-		  <mat-label>M2 CONSTRUCCION S.N.B (CUS)</mat-label>
-		  <input matInput placeholder="M2 CONSTRUCCION S.N.B (CUS)" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>M2 CONSTRUCCION B.N.B</mat-label>
-		  <input matInput placeholder="M2 CONSTRUCCION B.N.B" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>M2 CONSTRUCCION TOTAL</mat-label>
-		  <input matInput placeholder="M2 CONSTRUCCION TOTAL" />
-		</mat-form-field>
-		<mat-form-field fxFlex="100">
-		  <mat-label>BICIESTACIONAMIENTO</mat-label>
-		  <input matInput placeholder="BICIESTACIONAMIENTO" />
-		</mat-form-field>
-	      </div>
-	     </div>
-	  </form>
-	</mat-tab>
-	<mat-tab label="GENERALES">
-	  <form fxLayout="column">
-	    <mat-form-field fxFlex="100">
-	      <mat-label>ASOCIACION O CAMARA</mat-label>
-	      <input matInput placeholder="ASOCIACION O CAMARA" />
-	    </mat-form-field>
-
-	    <div fxLayout="row" fxLayoutGap="10px">
-	      <mat-form-field fxFlex="50">
-		<mat-label>POLIGONO DE ACTUACION</mat-label>
-		<input matInput placeholder="POLIGONO DE ACTUACION" />
-	      </mat-form-field>
-
-	      <mat-form-field fxFlex="50">
-		<mat-label>PROYECTO DE DESARROLLO URBANO</mat-label>
-		<input matInput placeholder="PROYECTO DE DESARROLLO URBANO" />
-	      </mat-form-field>
-	    </div>
-
-	    <div fxLayout="row" fxLayoutGap="10px">
-	      <mat-form-field fxFlex="50">
-		<mat-label>DONACION</mat-label>
-		<input matInput placeholder="DONACION" />
-	      </mat-form-field>
-
-	      <mat-form-field fxFlex="50">
-		<mat-label>ESTATUS</mat-label>
-		<input matInput placeholder="ESTATUS" />
-	      </mat-form-field>
-	    </div>
-	  </form>
-	</mat-tab>
-      </mat-tab-group>
-    </mat-card-content>
-  </mat-card>
+					<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px">
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>DONACION</mat-label>
+							<input matInput placeholder="DONACION" />
+					    </mat-form-field>
+						<mat-form-field fxFlex="50" fxFlex.xs="100">
+							<mat-label>ESTATUS</mat-label>
+							<input matInput placeholder="ESTATUS" />
+					    </mat-form-field>
+					</div>
+				</form>
+			</mat-tab>
+		</mat-tab-group>
+	</mat-card-content>
+</mat-card>
