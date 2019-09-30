@@ -23,22 +23,9 @@ export interface Menu {
 const MENUITEMS = [
   {
     state: '/',
-    name: 'HOME',
+    name: 'Inicio',
     type: 'link',
     icon: 'explore'
-  },{
-    state: 'apps',
-    name: 'APPS',
-    type: 'sub',
-    icon: 'apps',
-    badge: [{ type: 'red', value: '5' }],
-    children: [
-      { state: 'calendar', name: 'CALENDAR' },
-      { state: 'media', name: 'MEDIA' },
-      { state: 'messages', name: 'MESSAGES' },
-      { state: 'social', name: 'SOCIAL' },
-      { state: 'chat', name: 'CHAT' }
-    ]
   },{
     state: 'proyecto',
     name: 'Proyecto',
@@ -68,7 +55,7 @@ const MENUITEMS = [
     ]
   },{
     state: 'http://primer.nyasha.me/docs',
-    name: 'DOCS',
+    name: 'Documentación',
     type: 'extTabLink',
     icon: 'local_library'
   }

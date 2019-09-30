@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogConfig} from "@angular/material";
-import {MedidasAvancesComponent} from "../avances/avances.component";
+import { MatDialog, MatDialogConfig} from '@angular/material';
+import { MedidasAvancesComponent } from '../avances/avances.component';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'medidas-seguimiento',
@@ -9,7 +11,8 @@ import {MedidasAvancesComponent} from "../avances/avances.component";
 })
 export class MedidasSeguimientoComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog:MatDialog,
+    private location: Location) { }
 
   ngOnInit() {
   }
@@ -22,11 +25,15 @@ export class MedidasSeguimientoComponent implements OnInit {
   }
 
   seguimientoIndividual(){
-     console.log("Seguimiento individual");
+     console.log('Seguimiento individual');
   }
 
   seguimientoMultiple(){
-    console.log("Seguimiento Multiple");
+    console.log('Seguimiento Multiple');
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
 }

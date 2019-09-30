@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { Router } from '@angular/router';
 export interface trimestre {
     value: number,
     display: string
@@ -42,4 +43,6 @@ export class MedidasAvancesComponent implements OnInit {
     close() {
         this.dialogRef.close();
     }
+
+    
 }

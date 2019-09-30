@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator ,MatSort, MatTableDataSource} from '@angular/material';
+import { Location } from '@angular/common';
 import { DataSource } from '@angular/cdk/table';
 
 export interface PeriodicElement {
@@ -28,11 +29,17 @@ export class ProyectoListadoComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
+  constructor(private location:Location) {}
+
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  navigateBack(){
+    this.location.back();
   }
 }

@@ -1,48 +1,34 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>Dictamen de impacto urbano</span>
-
-        <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-                <mat-icon>dialpad</mat-icon>
-                <span>Iniciar session</span>
-            </button>
-        </mat-menu>
-    </mat-toolbar-row>
-</mat-toolbar>
-
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>Iniciar seccion</mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content>
-        <form>
-            <table cellspacing="0">
-                <tr>
-                    <td>
-                        <mat-form-field>
-                            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <mat-form-field>
-                            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
-                        </mat-form-field>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="primary">Login</button>
-    </mat-card-actions>
-</mat-card>
+<div fxLayout="row" style="height:100%">
+    <div fxFlex="60" fxHide.xs="true" fxHide.sm="true" class="image"></div>
+    <div fxFlex="40" fxFlex.xs="100" fxFlex.sm="100">
+        <mat-card fxLayout="column" fxLayoutAlign="center" style="height:100%">
+            <h2 fxLayout="row" fxLayoutAlign="center center" class="MuiTypography-h5">
+                Proyecto de Dictaminacion
+            </h2>
+		    <h3 fxLayout="row" fxLayoutAlign="center center" class="MuiTypography-h5">
+                Dictamen de Impacto Urbano
+            </h3>
+            
+            <div fxLayout="row">
+                <mat-form-field fxFlex="100" appearance="outline">
+                    <mat-label>Nombre del usuario</mat-label>
+                    <input matInput placeholder="Nombre del usuario" [(ngModel)]="username" name="username" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-form-field fxFlex="100" appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="contraseña" [(ngModel)]="password" type="password" name="password" required>
+                </mat-form-field>
+            </div>
+            <div fxLayout="row">
+                <mat-checkbox>Recordar contraseña</mat-checkbox>
+            </div>
+            <br/>
+            <div fxLayout="row">
+                <button mat-raised-button fxFlex="100" (click)="login()" color="primary" style="margin-top:12px;">Login</button>
+            </div>
+        </mat-card>
+    </div>
+</div>
 

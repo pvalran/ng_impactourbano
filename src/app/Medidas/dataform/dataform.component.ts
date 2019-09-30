@@ -1,9 +1,11 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { Location } from '@angular/common';
 
 export interface categoria {
   value: number,
-  display: string
+  display: string,
+
 };
 
 export interface dependencia {
@@ -22,13 +24,17 @@ export class MedidasDataformComponent implements OnInit {
   public categorias: categoria[];
 
   public onReady(editor) {
-    editor.ui.getEditableElement().parentElement.insertBefore(
+      const htmlEditor = editor.ui.getEditableElement();
+      htmlEditor.parentElement.insertBefore(
         editor.ui.view.toolbar.element,
         editor.ui.getEditableElement()
-    );
+      );
+
+      htmlEditor.setA
+      console.log(htmlEditor);
   }
 
-  constructor() {
+  constructor(private location: Location) {
   }
 
   /* Detecta los cambios en  los input de entradas del componente
@@ -52,6 +58,10 @@ export class MedidasDataformComponent implements OnInit {
             { value: 4, display: "SEMOVI"},
             { value: 5, display: "PAOT"}
         ];
+    }
+
+    navigateBack() {
+      this.location.back();
     }
 
     /*
