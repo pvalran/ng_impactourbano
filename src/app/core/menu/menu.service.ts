@@ -25,7 +25,7 @@ const MENUITEMS = [
     state: '/',
     name: 'Inicio',
     type: 'link',
-    icon: 'explore'
+    icon: 'dashboard'
   },{
     state: 'proyecto',
     name: 'Proyecto',
@@ -33,7 +33,7 @@ const MENUITEMS = [
     icon: 'apps',
     children: [
       { state: 'registro', name: 'registro' },
-      { state: 'listado', name: 'listado' }
+      { state: 'listado', name: 'listado', icon: 'list' }
     ]
   },{
     state: 'opinion',
@@ -42,7 +42,7 @@ const MENUITEMS = [
     icon: 'apps',
     children: [
       { state: 'registro', name: 'registro' },
-      { state: 'listado', name: 'listado' }
+      { state: 'listado', name: 'listado', icon: 'list' }
     ]
   },{
     state: 'medida',
@@ -51,7 +51,7 @@ const MENUITEMS = [
     icon: 'apps',
     children: [
       { state: 'registro', name: 'registro' },
-      { state: 'listado', name: 'listado' }
+      { state: 'listado', name: 'listado', icon: 'list' }
     ]
   },{
     state: 'http://primer.nyasha.me/docs',

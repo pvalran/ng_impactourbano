@@ -31,6 +31,7 @@
               "src/assets/fonts/pe/css/pe-icon-set-weather.css",
               "src/assets/fonts/data-table/icons.css",
               "src/assets/styles/highlightjs/material-light.css",
+
               "src/assets/styles/app.scss"
             ],
             "scripts": [

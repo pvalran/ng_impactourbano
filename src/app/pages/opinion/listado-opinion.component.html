@@ -1,0 +1,18 @@
+<mat-card>
+	<mat-card-header>
+		<mat-card-title>Modulo de opinion</mat-card-title>
+		<mat-card-subtitle>Listado de opiniones</mat-card-subtitle>
+		<span fxFlex></span>
+		<button mat-icon-button (click)="navigateBack()">
+			<mat-icon>keyboard_arrow_left</mat-icon>
+		</button>
+	</mat-card-header>
+	<mat-card-content fxLayout="column">
+		<proyecto-descripcion></proyecto-descripcion>
+		<h3 class="mt-1 pl-1 text-uppercase mat-bg-secondary">
+			<strong>Listado</strong>
+			<span fxFlex></span>
+		</h3>
+		<opinion-listado></opinion-listado>
+	</mat-card-content>
+</mat-card>

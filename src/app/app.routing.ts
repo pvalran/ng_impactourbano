@@ -16,15 +16,15 @@ export const AppRoutes: Routes = [
             },
             {
                 path:'',
-                loadChildren: './Proyectos/proyecto.module#ProyectoModule'
+                loadChildren: './pages/impactourbano/impactourbano.module#ImpactourbanoModule'
             },
             {
                 path: '',
-                loadChildren: './Opinion/opinion.module#OpinionModule'
+                loadChildren: './pages/opinion/opinion.module#OpinionModule'
             },
             {
                 path: '',
-                loadChildren: './Medidas/medidas.module#MedidasModule'
+                loadChildren: './pages/medidas/medidas.module#MedidasModule'
             }
         ]
     },
