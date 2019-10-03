@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-detalle-medidas',
-  templateUrl: './detalle-medidas.component.html',
-  styleUrls: ['./detalle-medidas.component.scss']
+	selector: 'app-detalle-medidas',
+	templateUrl: './detalle-medidas.component.html',
+	styleUrls: ['./detalle-medidas.component.scss']
 })
 export class DetalleMedidasComponent implements OnInit {
 
-  constructor() { }
+	constructor(private  location:Location) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
+	navigateBack(){
+		this.location.back();
+	}
 }

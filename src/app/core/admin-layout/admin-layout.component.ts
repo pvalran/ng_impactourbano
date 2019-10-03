@@ -78,9 +78,9 @@ export class AdminLayoutComponent implements OnInit, OnDestroy {
 	}
 
 	runOnRouteChange(): void {
-		if (this.isOver()) {
+		/*if (this.isOver()) {
 			this.sidemenu.close();
-		}
+		}*/
 		this.sidemenu.close();
 		this.updatePS();
 	}

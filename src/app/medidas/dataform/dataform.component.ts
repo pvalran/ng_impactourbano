@@ -32,8 +32,8 @@ export class MedidasDataformComponent implements OnInit {
         editor.ui.getEditableElement()
       );
 
-      htmlEditor.setA
-      console.log(htmlEditor);
+      htmlEditor.style.height = "50px";
+      console.log(htmlEditor.style);
   }
 
   constructor(private location: Location,

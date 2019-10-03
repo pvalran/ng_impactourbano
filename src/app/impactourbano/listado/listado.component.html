@@ -22,7 +22,10 @@
 	<ng-container matColumnDef="opciones">
 	    <th mat-header-cell *matHeaderCellDef></th>
 	    <td mat-cell *matCellDef="let row" fxLayoutAlign="center">
-	        <button mat-icon-button matTooltip="Detalle Impacto Urbano" routerLink="/proyecto/detalle">
+		    <button mat-icon-button matTooltip="Medidas de integracion" routerLink="/medida/listado">
+		        <mat-icon>comment</mat-icon>
+		    </button>
+		    <button mat-icon-button matTooltip="Detalle Impacto Urbano" routerLink="/proyecto/detalle">
 	            <mat-icon>description</mat-icon>
 	        </button>
 	        <button mat-icon-button matTooltip="Eliminar Impacto Urbano">

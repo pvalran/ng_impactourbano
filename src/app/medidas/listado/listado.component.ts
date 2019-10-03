@@ -1,6 +1,7 @@
 import {Component, OnInit } from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { Location } from '@angular/common';
+import {Router} from "@angular/router";
 
 export interface Medida {
 	descripcion: string;
@@ -81,9 +82,11 @@ export class MedidasListadoComponent implements OnInit {
 	columnsToDisplay = ['nombre', 'opinion', 'porcentaje'];
 	expandedElement: PeriodicElement;
 
-	constructor(private location: Location) { }
+	constructor(private location: Location,
+	            private  router:Router) { }
 
 	ngOnInit() {
+		//this.router.navigate(['/proyecto/listado']);
 	}
 
 	navigateBack() {
