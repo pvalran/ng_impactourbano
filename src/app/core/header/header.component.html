@@ -5,7 +5,7 @@
   <div class="branding">
     <div>Dictamen de impacto urbano</div>
   </div>
-  <mat-nav-list class="horizontal">
+  <mat-nav-list fxHide.xs="true" class="horizontal">
     <a mat-list-item routerLink="/proyecto/listado">Impacto urbano </a>
     <a mat-list-item routerLink="/medida/listado">Medidas de integracion</a>
     <a mat-list-item>Reportes</a>
@@ -13,10 +13,10 @@
   <span>&nbsp;</span>
   <span fxFlex></span>
   
-  <button (click)="fullScreenToggle()" mat-icon-button>
+  <button fxHide.xs="true" (click)="fullScreenToggle()" mat-icon-button>
     <mat-icon>fullscreen</mat-icon>
   </button>
-  <button (click)="toggleNotificationSidenav.emit()" mat-icon-button class="ml-xs overflow-visible">
+  <button fxHide.xs="true" (click)="toggleNotificationSidenav.emit()" mat-icon-button class="ml-xs overflow-visible">
     <mat-icon>notifications</mat-icon>
     <span class="notification-label">5</span>
   </button>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 
+
 @Component({
   selector: 'app-detalle-impacto-urbano',
   templateUrl: './detalle-impacto-urbano.component.html',

@@ -22,6 +22,7 @@ import {
 	MatTooltipModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FilemanagerModule } from "../filemanager/filemanager.module";
 import { DataformComponent } from './dataform/dataform.component';
 import { ListadoComponent } from './listado/listado.component';
 
@@ -47,7 +48,8 @@ import { ListadoComponent } from './listado/listado.component';
 		MatTableModule,
 		MatPaginatorModule,
 		MatTooltipModule,
-		FlexLayoutModule
+		FlexLayoutModule,
+		FilemanagerModule
 	],
 	declarations: [
 		DataformComponent,

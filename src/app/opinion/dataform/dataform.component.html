@@ -1,25 +1,29 @@
-<div fxLayout="row" >
-    <mat-form-field fxFill>
-	    <mat-label fxLayoutAlign="start center" class="text-uppercase">Nombre de dependencia:</mat-label>
-	    <input matInput>
-    </mat-form-field>
-</div>
-<div fxLayout="row">
-	<mat-form-field fxFill>
-		<mat-label matTabLabelWrapper fxLayoutAlign="start center" class="text-uppercase">Numero de folio:</mat-label>
-		<input matInput>
-	</mat-form-field>
-</div>
-<div fxLayout="row">
-	<mat-form-field fxFill>
-		<mat-label fxLayoutAlign="start center" class="text-uppercase">Fecha de folio:</mat-label>
-	    <input matInput type="text" >
-    </mat-form-field>
-</div>
-<div fxLayout="row">
-	<mat-label flex="100" fxLayoutAlign="start center" class="text-uppercase">Documento/Folio:</mat-label>
-	<input type="file" placeholder="Carga de documento">
-</div>
+<mat-tab-group>
+	<mat-tab label="Datos generales">
+		<div fxLayout="row" >
+		    <mat-form-field fxFill>
+			    <mat-label fxLayoutAlign="start center" class="text-uppercase">Nombre de dependencia:</mat-label>
+			    <input matInput>
+		    </mat-form-field>
+		</div>
+		<div fxLayout="row">
+			<mat-form-field fxFill>
+				<mat-label matTabLabelWrapper fxLayoutAlign="start center" class="text-uppercase">Numero de folio:</mat-label>
+				<input matInput>
+			</mat-form-field>
+		</div>
+		<div fxLayout="row">
+			<mat-form-field fxFill>
+				<mat-label fxLayoutAlign="start center" class="text-uppercase">Fecha de folio:</mat-label>
+			    <input matInput type="text" >
+		    </mat-form-field>
+		</div>
+	</mat-tab>
+	<mat-tab label="Documentacion">
+		<filemanager-listado></filemanager-listado>
+	</mat-tab>
+</mat-tab-group>
 <div fxLayout="row" fxLayoutAlign="end center" class="mt-1">
+	<button mat-raised-button color="mat-secondary" (click)="openDialog()"><mat-icon>cloud_upload</mat-icon>Documentacion</button>
     <button mat-raised-button color="primary"><mat-icon>save</mat-icon>Registrar opinion</button>
 </div>

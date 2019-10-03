@@ -18,7 +18,11 @@ export const AppsRoutes: Routes = [
 			}, {
 				path: 'seguimiento',
 				component: SeguimientoMedidasComponent
+			}, {
+				path: 'detalle',
+				component: DetalleMedidasComponent
 			}
+
 		]
 	}
 ];

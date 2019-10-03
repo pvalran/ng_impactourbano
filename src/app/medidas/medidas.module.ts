@@ -23,10 +23,12 @@ import {
 	MatPaginatorModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FilemanagerModule } from "../filemanager/filemanager.module";
 import { MedidasDataformComponent } from './dataform/dataform.component';
 import { MedidasListadoComponent } from './listado/listado.component';
 import { MedidasSeguimientoComponent } from './seguimiento/seguimiento.component';
 import { MedidasAvancesComponent } from './avances/avances.component';
+import { MedidasDetalleComponent } from './detalle/detalle.component';
 import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
@@ -53,19 +55,22 @@ import { DialogComponent } from './dialog/dialog.component';
 		MatSelectModule,
 		CKEditorModule,
 		FlexLayoutModule,
+		FilemanagerModule
 	],
 	exports: [
 		MatTableModule,
 		MedidasListadoComponent,
 		MedidasDataformComponent,
-		MedidasSeguimientoComponent
+		MedidasSeguimientoComponent,
+		MedidasDetalleComponent
 	],
 	declarations:[
 		MedidasDataformComponent,
 		MedidasListadoComponent,
 		MedidasSeguimientoComponent,
 		MedidasAvancesComponent,
-		DialogComponent
+		DialogComponent,
+		MedidasDetalleComponent
 	],
 	entryComponents: [MedidasListadoComponent,
 		MedidasAvancesComponent

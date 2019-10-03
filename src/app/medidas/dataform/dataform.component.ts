@@ -1,6 +1,8 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
+import { MatDialog,MatDialogConfig} from "@angular/material/dialog";
 import { Location } from '@angular/common';
+import {FileManagerEdicionComponent} from "../../filemanager/edicion/edicion.component";
 
 export interface categoria {
   value: number,
@@ -34,7 +36,8 @@ export class MedidasDataformComponent implements OnInit {
       console.log(htmlEditor);
   }
 
-  constructor(private location: Location) {
+  constructor(private location: Location,
+              private dialog:MatDialog) {
   }
 
   /* Detecta los cambios en  los input de entradas del componente
@@ -62,6 +65,13 @@ export class MedidasDataformComponent implements OnInit {
 
     navigateBack() {
       this.location.back();
+    }
+
+    openDialog(){
+        const dialogConfig = new MatDialogConfig();
+        dialogConfig.autoFocus = false;
+        dialogConfig.disableClose = false;
+        this.dialog.open(FileManagerEdicionComponent,dialogConfig);
     }
 
     /*

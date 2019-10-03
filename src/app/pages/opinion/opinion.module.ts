@@ -24,6 +24,7 @@ import {
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppsRoutes } from './opinion.routing';
+import { FilemanagerModule } from "../../filemanager/filemanager.module";
 import { ImpactourbanoComponentModule} from "../../impactourbano/Impactourbano.module";
 import { OpinionComponentModule} from "../../opinion/opinion.module";
 import { EdicionOpinionComponent } from './edicion-opinion.component';
@@ -56,7 +57,8 @@ import {DataformComponent} from "../../opinion/dataform/dataform.component";
 		MatTooltipModule,
 		FlexLayoutModule,
 		OpinionComponentModule,
-		ImpactourbanoComponentModule
+		ImpactourbanoComponentModule,
+		FilemanagerModule
 	],
     declarations: [EdicionOpinionComponent,
 	  ListadoOpinionComponent,

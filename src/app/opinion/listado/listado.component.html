@@ -1,55 +1,44 @@
- <div fxLayout="row" fxLayoutAlign="end center">
-     <mat-form-field>
-         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
-     </mat-form-field>
-     <a mat-icon-button matTooltip="Nuevo de registro" routerLink="/opinion/registro">
-         <mat-icon>add_box</mat-icon>
-     </a>
- </div>
-
- <table mat-table #table [dataSource]="dataSource" matSort>
-     <ng-container matColumnDef="dependencia">
-         <th mat-header-cell *matHeaderCellDef mat-sort-header>Dependencia</th>
-         <td mat-cell *matCellDef="let element"> {{element.dependencia}} </td>
-     </ng-container>
-
-        <!-- Name Column -->
-     <ng-container matColumnDef="opinion">
-         <th mat-header-cell *matHeaderCellDef mat-sort-header> Opinión </th>
-         <td mat-cell *matCellDef="let element"> {{element.opinion}} </td>
-     </ng-container>
-
-        <!-- Weight Column -->
-     <ng-container matColumnDef="folio">
-         <th mat-header-cell *matHeaderCellDef mat-sort-header> Folio </th>
-         <td mat-cell *matCellDef="let element"> {{element.folio}} </td>
-     </ng-container>
-
-        <!-- Symbol Column -->
-     <ng-container matColumnDef="fecha">
-         <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
-         <td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
-     </ng-container>
-
-        <!-- Checkbox Column -->
-     <ng-container matColumnDef="opciones">
-         <th mat-header-cell *matHeaderCellDef>
-
-         </th>
-         <td mat-cell *matCellDef="let row">
-             <button mat-icon-button matTooltip="Detalle de opinion" matTooltipClass="tooltip" routerLink="/opinion/detalle">
-                 <mat-icon>list</mat-icon>
-             </button>
-             <button mat-icon-button matTooltip="Enviar por correo" matTooltipClass="tooltip">
-                 <mat-icon>email</mat-icon>
-             </button>
-             <button mat-icon-button matTooltip="Eliminar opinion" matTooltipClass="tooltip">
-                 <mat-icon>delete</mat-icon>
-             </button>
-         </td>
-     </ng-container>
-     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
- </table>
- <mat-paginator #paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<div fxLayout="row" fxLayoutAlign="end center">
+	<mat-form-field>
+		<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Buscar">
+	</mat-form-field>
+	<a mat-icon-button matTooltip="Nueva opinion" routerLink="/opinion/registro">
+		<mat-icon>add_box</mat-icon>
+	</a>
+</div>
+<table mat-table #table [dataSource]="dataSource" matSort>
+	<ng-container matColumnDef="dependencia">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header>Dependencia</th>
+		<td mat-cell *matCellDef="let element"> {{element.dependencia}} </td>
+	</ng-container>
+	<ng-container matColumnDef="opinion">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Opinión </th>
+		<td mat-cell *matCellDef="let element"> {{element.opinion}} </td>
+	</ng-container>
+	<ng-container matColumnDef="folio">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Folio </th>
+		<td mat-cell *matCellDef="let element"> {{element.folio}} </td>
+	</ng-container>
+	<ng-container matColumnDef="fecha">
+		<th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+		<td mat-cell *matCellDef="let element"> {{element.fecha}} </td>
+	</ng-container>
+	<ng-container matColumnDef="opciones">
+		<th mat-header-cell *matHeaderCellDef></th>
+		<td mat-cell *matCellDef="let row" fxLayoutAlign="center">
+			<button mat-icon-button matTooltip="Detalle de opinion" matTooltipClass="tooltip" routerLink="/opinion/detalle">
+				<mat-icon>description</mat-icon>
+			</button>
+			<button mat-icon-button matTooltip="Enviar por correo" matTooltipClass="tooltip">
+				<mat-icon>email</mat-icon>
+			</button>
+			<button mat-icon-button matTooltip="Eliminar opinion" matTooltipClass="tooltip">
+				<mat-icon>delete</mat-icon>
+			</button>
+		</td>
+	</ng-container>
+	<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+	<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator #paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 

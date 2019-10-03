@@ -27,6 +27,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppsRoutes } from './medidas.routing';
 import { ImpactourbanoComponentModule} from "../../impactourbano/Impactourbano.module";
 import { MedidasComponentModule } from "../../medidas/medidas.module";
+import { FilemanagerModule } from "../../filemanager/filemanager.module";
 import { DetalleMedidasComponent } from './detalle-medidas.component';
 import { EdicionMedidasComponent } from './edicion-medidas.component';
 import { ListadoMedidasComponent } from './listado-medidas.component';
@@ -59,12 +60,14 @@ import { DialogComponent } from '../../medidas/dialog/dialog.component';
 		CKEditorModule,
 		FlexLayoutModule,
 		MedidasComponentModule,
-		ImpactourbanoComponentModule
+		ImpactourbanoComponentModule,
+		FilemanagerModule
 	],
 	declarations: [
 		EdicionMedidasComponent,
 		ListadoMedidasComponent,
-		SeguimientoMedidasComponent
+		SeguimientoMedidasComponent,
+		DetalleMedidasComponent
 	]
 })
 export class MedidasModule { }

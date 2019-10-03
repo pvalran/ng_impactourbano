@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output,OnInit } from '@angular/core';
 
 import * as screenfull from 'screenfull';
 
@@ -14,6 +14,11 @@ export class HeaderComponent {
   toggleNotificationSidenav = new EventEmitter<void>();
 
   constructor() {}
+
+  ngOnInit(){
+    this.toggleSidenav.emit();
+  }
+
 
   fullScreenToggle(): void {
     if (screenfull.enabled) {
