@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Capa de biometrica(facematch)</h1>
+<div mat-dialog-content>
+  <table id="j_idt164" class="ui-panelgrid ui-widget" role="grid">
+  <thead class="ui-panelgrid-header">
+  <tr class="ui-widget-header" role="row">
+    <td colspan="2" role="columnheader" class="ui-panelgrid-cell ui-widget-header">
+        <span class="container">
+            <img id="ImgBiometric" [src]="imageSource" src="" style="height: 240px;">
+        </span>
+    </td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr class="ui-widget-content" role="row">
+    <td role="gridcell" class="ui-panelgrid-cell label">Rostro Detectado:</td>
+    <td role="gridcell" class="ui-panelgrid-cell value">{{ this.biometric.estatus }}</td>
+  </tr>
+  <tr class="ui-widget-content" role="row">
+    <td role="gridcell" class="ui-panelgrid-cell label">Verificación de rostro</td>
+    <td role="gridcell" class="ui-panelgrid-cell value">{{  this.biometric.mensaje }}</td>
+  </tr>
+  <tr class="ui-widget-content" role="row">
+    <td role="gridcell" class="ui-panelgrid-cell label">Coincidencia de rostro con identidad</td>
+    <td role="gridcell" class="ui-panelgrid-cell value">{{  this.biometric.similitud }}%</td>
+  </tr>
+  <tr class="ui-widget-content" role="row">
+    <td role="gridcell" class="ui-panelgrid-cell label">Duplicación</td>
+    <td role="gridcell" class="ui-panelgrid-cell value">No aplica</td>
+  </tr>
+  <tr class="ui-widget-content" role="row">
+    <td role="gridcell" class="ui-panelgrid-cell label">Folios Duplicados</td>
+    <td role="gridcell" class="ui-panelgrid-cell value">No aplica</td>
+  </tr>
+  <tr class="ui-widget-content" role="row">
+    <td role="gridcell" class="ui-panelgrid-cell label">Deduplicación</td>
+    <td role="gridcell" class="ui-panelgrid-cell value">No aplica</td>
+  </tr>
+  </tbody>
+</table>
+</div>

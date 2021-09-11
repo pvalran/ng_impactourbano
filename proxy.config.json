@@ -1,0 +1,43 @@
+{
+    "/forms/*": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/forms/userboard/*": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/forms/download/*/*": {
+        "target": "https://pimaid.dev:8443/CreditoParaTi",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/customer/customer/all": {
+        "target": "https://pimaid.dev:8443/CreditoParaTi",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/catalogies/getDetalleCredito/*": {
+        "target": "https://pimaid.dev:8443/CreditoParaTi",
+        "secure": false,
+        "changeOrigin": true
+    },
+
+    "/catalogies/catalogy/customerstransacion": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/filter/customerstransacion": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/filter/statisticstransacion": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "changeOrigin": true
+    }
+}

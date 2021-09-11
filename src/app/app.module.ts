@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { RouterModule} from '@angular/router';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, Provider} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { LocationStrategy, HashLocationStrategy} from "@angular/common";
+
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -53,6 +56,15 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './core/login/login.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {RestorepasswordComponent} from "./pages/auth/restorepassword/restorepassword.component";
+
+import {DialogsModule} from "./dialogs/dialogs.module";
+import {ChangePasswordComponent} from "./pages/auth/change-password/change-password.component";
+import {DashboardModule} from "./dashboard/dashboard.module";
+import {PagesModule} from "./pages/pages.module";
+import {ShareModule} from "./share/share.module";
+
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -79,13 +91,15 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AccordionLinkDirective,
     AccordionDirective,
     LoginComponent,
+    RestorepasswordComponent,
+    ChangePasswordComponent
 
-    
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, { useHash: true }),
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -96,6 +110,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       }
     }),
     LoadingBarRouterModule,
+    DialogsModule,
+    ShareModule,
     MatSidenavModule,
     MatCardModule,
     MatMenuModule,
@@ -117,13 +133,17 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AgmCoreModule.forRoot({
       apiKey: 'YOURAPIKEY'
     }),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
   ],
   providers: [
     {
       provide: PERFECT_SCROLLBAR_CONFIG,
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
+  ],
+  exports: [],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

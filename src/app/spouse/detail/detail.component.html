@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Detalle de conyuge</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Apellido paterno:</mat-label>
+                <p><strong>{{ ObjSpouse.paternalLastName}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Apellido materno:</mat-label>
+                <p><strong>{{ ObjSpouse.maternalLastName}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Nombre:</mat-label>
+            <p><strong>{{ ObjSpouse.name}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Curp:</mat-label>
+            <p><strong>{{ ObjSpouse.curp}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>RFC:</mat-label>
+            <p><strong>{{ ObjSpouse.rfc}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>En caso de haber tenido otro nombre anteriormente favor de indicarlo</mat-label>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Apellido paterno:</mat-label>
+                <p><strong>{{ ObjSpouse.oldPaternalLastName}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Apellido materno:</mat-label>
+                <p><strong>{{ ObjSpouse.oldMaternalLastName}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Nombre:</mat-label>
+            <p><strong>{{ ObjSpouse.oldPaternalLastName}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Nacionalidad:</mat-label>
+            <p><strong>{{ nationality[ObjSpouse.nationality]}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Especifique (Solo extrangera):</mat-label>
+            <p><strong>{{ ObjSpouse.speticNationality}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Genero:</mat-label>
+            <p><strong>{{ genero[ObjSpouse.gender -1]}}</strong></p>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Fecha de nacimiento:</mat-label>
+            <p><strong>{{ ObjSpouse.dateOfBirth| date}}</strong></p>
+        </div>
+    </mat-card-content>
+</mat-card>

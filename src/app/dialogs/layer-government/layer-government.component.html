@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Capa de gobierno</h1>
+<div mat-dialog-content>
+  <table class="ui-panelgrid ui-widget" role="grid">
+    <thead class="ui-panelgrid-header">
+      <tr class="ui-widget-header" role="row">
+        <td colspan="2" role="columnheader" class="ui-panelgrid-cell ui-widget-header">
+          <span class="container">
+            <img id="ImgGov" [src]="imageSource" style="height: 240px;" src="">
+          </span>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ui-widget-content" role="row">
+        <td role="gridcell" class="ui-panelgrid-cell label">CURP Valido</td>
+        <td role="gridcell" class="ui-panelgrid-cell value">{{ (this.ObjData.estatus == 'OK') ? 'SI' : 'NO' }} </td>
+      </tr>
+      <tr class="ui-widget-content" role="row">
+        <td role="gridcell" class="ui-panelgrid-cell label">Coincidencia CURP Con Datos Identidad</td>
+        <td role="gridcell" class="ui-panelgrid-cell value">{{ (this.ObjData.estatus == 'OK') ? 'SI' : 'NO' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

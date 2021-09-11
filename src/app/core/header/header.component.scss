@@ -1,7 +1,7 @@
-.horizontal{
-	display: inline-flex;
+mat-toolbar {
+  background-color: #2461cc;
 }
 
-.mat-list-item{
-	color: white
+.mat-toolbar-row, .mat-toolbar-single-row {
+  padding: 0px;
 }

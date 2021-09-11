@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Referencias personales</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+
+            <mat-list-item *ngFor="let referencias of ObjRef">
+                <div mat-line><strong>REFERENCIA {{ typeReference[referencias.typeReference] }}</strong></div>
+                <div mat-line><strong>{{referencias.name }} {{referencias.paternalLastName}} {{referencias.maternalLastName}}</strong> </div>
+                <div mat-subline>{{referencias.email}} </div>
+                <div mat-subline>{{referencias.phone }}</div>
+                <div mat-subline>{{referencias.mobile }}  </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+
+
+

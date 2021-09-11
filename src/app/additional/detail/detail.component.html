@@ -1,0 +1,78 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Información adicional</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="70">
+                <mat-label>País de nacimiento</mat-label>
+                <p><strong>{{ country[ObjAdd.countryOfBirth]}}</strong></p>
+                <mat-label>País de recidencia</mat-label>
+                <p><strong>{{ country[ObjAdd.countryOfResidence]}}</strong></p>
+            </div>
+            <div fxFlex="30">
+                <mat-label>Nacionalidad</mat-label>
+                <p><strong>{{ catNationality }}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Estado civil</mat-label>
+                <p><strong>{{ statecivil[ObjAdd.civilState]}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Condicion matrimonial</mat-label>
+                <p><strong>{{ maritalStatus[ObjAdd.maritalStatus] }}</strong></p>
+            </div>
+        </div>
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>No. IMSS del solicitante</mat-label>
+                <p><strong>{{ObjAdd.numberImss}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Escolaridad</mat-label>
+                <p><strong>{{scholarship[ObjAdd.scholarship]}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Telefono de casa</mat-label>
+                <p><strong>{{ObjAdd.phone}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Telefono celular</mat-label>
+                <p><strong>{{ObjAdd.mobile}}</strong></p>
+            </div>
+        </div>
+
+        <label>Antiguedad en el domicilio</label>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Colonia</mat-label>
+                <p><strong>{{ObjAdd.suburb}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Codigo postal</mat-label>
+                <p><strong>{{ObjAdd.postal_code}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="30">
+                <mat-label>Delegacion/Municipio/Demarcacion politica</mat-label>
+                <p><strong>{{ObjAdd.municipality}}</strong></p>
+            </div>
+            <div fxFlex="30">
+                <mat-label>Ciudad/Poblacion</mat-label>
+                <p><strong>{{ObjAdd.city}}</strong></p>
+            </div>
+            <div fxFlex="30">
+                <mat-label>Entidad federativa/Estado/Provincia</mat-label>
+                <p><strong>{{ObjAdd.state}}</strong></p>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,39 @@
+:host ::ng-deep {
+  height: 100%;
+}
+.layout-content{
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+tr:hover {
+  background: rgba(205, 211, 216, 0.35);
+}
+
+tr:active {
+  background: #efefef;
+}
+
+
+.button-tooltip {
+  margin-top: 16px;
+}
+
+.tooltip {
+  background: #ff9c00;
+}
+
+.text-link{
+  cursor: default ;
+}
+
+.text-link:hover{
+  cursor: pointer;
+}

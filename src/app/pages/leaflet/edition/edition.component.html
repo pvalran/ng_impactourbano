@@ -1,0 +1,65 @@
+<app-loading [hidden]="loading"></app-loading>
+<h1 mat-dialog-title style="margin-bottom:4px;">Registro de prospecto</h1>
+<h4 class="body" style="margin: 0px 0px 12px 0px;">
+    <mat-label fxFlex="100" class="mat-caption">Todos los campos son obligatorios</mat-label>
+</h4>
+<div mat-dialog-content>
+    <div class="container">
+        <div id="content">
+            <div *ngIf="!passwordVisible" fxLayout="column"  fxLayoutAlign="start">
+                <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <mat-form-field fxFlex="50" fxFlex.sm="100">
+                        <mat-label>Apellido paterno</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.paternalLastName" placeholder="Apellido paterno">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="50" fxFlex.sm="100">
+                        <mat-label>Apellido materno</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.motherLastName" placeholder="Apellido materno">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <mat-label>Nombre del usuario</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.name" placeholder="Nombre del usuario">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <mat-form-field fxFlex="50"  fxFlex.sm="100">
+                        <mat-label>Correo electronico</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.email" placeholder="Correo electronico">
+                    </mat-form-field>
+                    <mat-form-field fxFlex="50"  fxFlex.sm="100">
+                        <mat-label>Confirmación de correo electronico</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.confirme_email" placeholder="Confirme correo electronico">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <mat-form-field fxFlex="50"  fxFlex.sm="100">
+                        <mat-label>Número telefonico de contacto</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.phone" placeholder="Número telefonico de contacto">
+                    </mat-form-field>
+                </div>
+                <div *ngIf="userVisible" fxLayout="row" fxFlex="100"
+                     fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <button mat-flat-button (click)="registar()">Registrar usuario</button>
+                </div>
+                <div *ngIf="!userVisible" fxLayout="row" fxFlex="100" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <button mat-flat-button (click)="update()">Actualizar usuario</button>
+                </div>
+            </div>
+            <div *ngIf="passwordVisible" fxLayout="column"  fxLayoutAlign="start">
+                <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <mat-form-field fxFlex="100"  fxFlex.sm="100">
+                        <mat-label>Correo electronico</mat-label>
+                        <input matInput [(ngModel)]="ObjUser.email" placeholder="Correo electronico">
+                    </mat-form-field>
+
+                </div>
+                <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <button mat-raised-button (click)="sendEmail()" color="primary" fxFill fxFlexFill>Enviar correo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

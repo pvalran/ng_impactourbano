@@ -3,11 +3,25 @@ import { HttpClient,HttpHeaders} from "@angular/common/http";
 import { Observable } from "rxjs/internal/Observable";
 import { map } from "rxjs/operators";
 import { isNullOrUndefined} from "util";
+import {environment} from "../../environments/environment";
+import {AuthUser} from "../interfaces/auth";
+
+
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
+    public UserAuth:AuthUser = {
+        idUser:"",
+        name: "",
+        paternalLastName: "",
+        motherLastName:  "",
+        email: "",
+        profileId: 0,
+    };
+
     private  headers: HttpHeaders = new HttpHeaders({
         "Content-Type": "application/json"
     })
@@ -25,8 +39,8 @@ export class AuthService {
     }
 
     loginUser (username:string , password: string): Observable<any> {
-        const url_api = "http://localhost:3000/api/users";
-        return this.http.post(url_api,{ username: username, password: password},{
+        const url_api = environment.apiUrl;
+        return this.http.post(url_api+"/user/user/login",{ username: username, password: password},{
             headers: this.headers
         }).pipe(
             map(data => data)
@@ -57,8 +71,6 @@ export class AuthService {
     }
 
     logoutUser() {
-        let accessToken = localStorage.getItem("accessToken");
-        const url_api = `http://localhost:3000/api/users/logout`;
         localStorage.removeItem("accessToken");
         localStorage.removeItem("currentUser");
     }

@@ -1,0 +1,30 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Documentos recibidos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <div mat-subheader>Documentos</div>
+            <mat-list-item *ngFor="let document of Docs">
+                <div mat-line>
+
+                    <a *ngIf="document.typeDocumentId < 10" (click)="download(document.idDocument)" >
+                        {{ typeDocument[document.typeDocumentId-1] }}
+                    </a>
+
+                    <a *ngIf="document.typeDocumentId == 10" (click)="downloadPdf(document.idDocument)" >
+                        {{ typeDocument[document.typeDocumentId-1] }}
+                    </a>
+
+                    <a *ngIf="document.typeDocumentId == 11" (click)="downloadPdf(document.idDocument)" >
+                        {{ typeDocument[document.typeDocumentId-1] }}
+                    </a>
+
+                    <a *ngIf="document.typeDocumentId > 11" (click)="download(document.idDocument)" >
+                        {{ typeDocument[document.typeDocumentId-1] }}
+                    </a>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

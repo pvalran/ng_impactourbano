@@ -22,48 +22,27 @@ export interface Menu {
 
 const MENUITEMS = [
 	{
-		state: '/',
-		name: 'Inicio',
+		state: 'dashboard',
+		name: 'Dashboard',
 		type: 'link',
 		icon: 'dashboard'
 	},{
-		state: 'proyecto',
-		name: 'Proyecto',
+		state: 'enrolments',
+		name: 'Enrolamientos',
 		type: 'sub',
-		icon: 'apps',
+		icon: 'person',
 		children: [
-			{ state: 'registro', name: 'registro' },
-			{ state: 'listado', name: 'listado', icon: 'list' }
+			{ state: 'list', name: 'listado', icon: 'list' }
 		]
 	},{
-		state: 'opinion',
-		name: 'Opinion',
+		state: 'administration',
+		name: 'Administración',
 		type: 'sub',
-		icon: 'apps',
+		icon: 'supervisor_account',
 		children: [
-			{ state: 'registro', name: 'registro' },
-			{ state: 'listado', name: 'listado', icon: 'list' }
+			{ state: 'list', name: 'Usuarios', icon: 'supervisor_account' },
+			{ state: 'leaflet', name: 'Prospectos', icon: 'list' }
 		]
-	},{
-		state: 'medida',
-		name: 'Medida',
-		type: 'sub',
-		icon: 'apps',
-		children: [
-			{ state: 'registro', name: 'registro' },
-			{
-				state: 'listado',
-				name: 'listado',
-				redirectTo: '/proyecto/listado',
-				pathMatch: 'full',
-				icon: 'list'
-			}
-		]
-	},{
-		state: 'http://primer.nyasha.me/docs',
-		name: 'Documentación',
-		type: 'extTabLink',
-		icon: 'local_library'
 	}
 ];
 

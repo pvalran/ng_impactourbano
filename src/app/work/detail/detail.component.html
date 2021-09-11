@@ -1,0 +1,102 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Detalle de información laboral</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Nombre o razon social de la empresa</mat-label>
+                <p><strong>{{ObjWork.companyName}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Tipo de contrato</mat-label>
+                <p><strong>{{ typeContrat[ObjWork.typeContract] }}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Puesto/Oupación</mat-label>
+                <p><strong>{{typeOcupacion[ObjWork.position]}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Otro(especifique)</mat-label>
+                <p><strong>{{ObjWork.specifyPosition}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Actividad/Giro</mat-label>
+                <p><strong>{{typeLaboral[ObjWork.laboral_activity]}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Actividad especifica</mat-label>
+                <p><strong>{{ObjWork.specifyLaboralActivity}}</strong></p>
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Domicilio laboral en México:</mat-label>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Calle/Avenida/Via</mat-label>
+            <p><strong>{{ObjWork.address}}</strong></p>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Numero Exterior</mat-label>
+                <p><strong>{{ObjWork.external_number}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Numero Interior</mat-label>
+                <p><strong>{{ObjWork.interior_number}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Codigo Postal</mat-label>
+                <p><strong>{{ObjWork.postalCode}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Colonia</mat-label>
+                <p><strong>{{ObjWork.suburb}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="30">
+                <mat-label>Delegacion/Municipio/Demarcacion politica</mat-label>
+                <p><strong>{{ObjWork.municipality}}</strong></p>
+            </div>
+            <div fxFlex="30">
+                <mat-label>Ciudad/Poblacion</mat-label>
+                <p><strong>{{ObjWork.city}}</strong></p>
+            </div>
+            <div fxFlex="30">
+                <mat-label>Entidad Federativa/Estado/Provincia</mat-label>
+                <p><strong>{{ObjWork.state}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Telefono de oficina</mat-label>
+                <p><strong>{{ObjWork.officePhone}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Extension</mat-label>
+                <p><strong>{{ObjWork.officePhoneExtension}}</strong></p>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <mat-label>Antiguedad en el empleo:</mat-label>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px">
+            <div fxFlex="50">
+                <mat-label>Actual años</mat-label>
+                <p><strong>{{ObjWork.nowWorkSeniority}}</strong></p>
+            </div>
+            <div fxFlex="50">
+                <mat-label>Anterior (años)</mat-label>
+                <p><strong>{{ObjWork.previousWorkSeniority}}</strong></p>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

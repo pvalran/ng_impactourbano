@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Detalle del credito</h1>
+<div mat-dialog-content>
+    <div class="container">
+        <div id="content">
+            <div id="main-content">
+                <mat-tab-group mat-align-tabs="start">
+                    <mat-tab label="Adicional">
+                        <app-additional-detail></app-additional-detail>
+                    </mat-tab>
+                    <mat-tab label="Dependientes economicos">
+                        <app-dependent-detail></app-dependent-detail>
+                    </mat-tab>
+                    <mat-tab label="Conyuge">
+                        <app-spouse-detail></app-spouse-detail>
+                    </mat-tab>
+                    <mat-tab label="Laborales">
+                        <app-work-detail></app-work-detail>
+                    </mat-tab>
+                    <mat-tab label="Referencia personales">
+                        <app-reference-detail></app-reference-detail>
+                    </mat-tab>
+                    <mat-tab label="Documentos">
+                        <app-document-detail></app-document-detail>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+        </div>
+    </div>
+</div>

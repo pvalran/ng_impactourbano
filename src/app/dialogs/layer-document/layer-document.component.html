@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Capa de documento</h1>
+<div mat-dialog-content>
+    <table id="j_idt138" class="ui-panelgrid ui-widget" role="grid">
+    <thead class="ui-panelgrid-header">
+        <tr class="ui-widget-header" role="row">
+            <td colspan="2" role="columnheader" class="ui-panelgrid-cell ui-widget-header">
+                <span class="container">
+                    <img id="ImgAnverso" [src]="imageAnverso" src="" style="height: 240px;">
+                </span>
+                <span style="width: 15px">&nbsp;</span>
+                <span class="container">
+                    <img id="ImgReverso" [src]="imageReverso" src="" style="height: 240px;">
+                </span>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">MRZ</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">{{ this.ine.mrz }}</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">MRZ Valido</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">{{ this.ine.valido }}</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">Plantilla Coincidente Encontrada</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">NO APLICA</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">Suficientes Características Encontradas</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">NO APLICA</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">Suficientes Características Frotales Encontradas</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">NO APLICA</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">Suficientes Características Reversas Encontradas</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">NO APLICA</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">Vigencia Documento</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">{{ this.ine.vigencia }}</td>
+        </tr>
+        <tr class="ui-widget-content" role="row">
+            <td role="gridcell" class="ui-panelgrid-cell label">Baja Resolución Documento</td>
+            <td role="gridcell" class="ui-panelgrid-cell value">NO APLICA</td>
+        </tr>
+    </tbody>
+</table>
+</div>
