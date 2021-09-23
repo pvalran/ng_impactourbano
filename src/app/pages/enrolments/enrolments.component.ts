@@ -6,7 +6,7 @@ import {LayerDocumentComponent} from "../../dialogs/layer-document/layer-documen
 import {LayerBiometricComponent} from "../../dialogs/layer-biometric/layer-biometric.component";
 import {LayerGovernmentComponent} from "../../dialogs/layer-government/layer-government.component";
 import {IObjRequest} from "../../interfaces/iobj-request";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 
 
 
@@ -17,6 +17,7 @@ import {AuthService} from "../../services/auth.service";
 export interface layerElement {
     folio: string;
     fecha: string;
+    crtdBy: string;
     name: string;
     fisrtLastName: string;
     secondLastName: string;
@@ -35,9 +36,10 @@ let ELEMENT_DATA: layerElement[] =  []
     styleUrls: ['./enrolments.component.scss']
 })
 export class EnrolmentsComponent implements OnInit {
+    loading = true;
     lyrElt:layerElement;
     userCurrent: any;
-    displayedColumns: string[] = ['folio', 'fecha', 'name', 'fisrtLastName','secondLastName','status',
+    displayedColumns: string[] = ['folio', 'fecha', 'crtdBy','name', 'fisrtLastName','secondLastName','status',
         'layerDocument', 'layerBiometic'];
     dataSource = new MatTableDataSource<layerElement>(ELEMENT_DATA);
     pageEvent: PageEvent;
@@ -63,6 +65,7 @@ export class EnrolmentsComponent implements OnInit {
                         this.lyrElt = {
                             folio: element.customer.creditId,
                             fecha: element.crtd_on,
+                            crtdBy: element.crtd_by,
                             name:  element.customer.name,
                             fisrtLastName: element.customer.paternalLastName,
                             secondLastName: element.customer.motherLastName,
@@ -89,6 +92,7 @@ export class EnrolmentsComponent implements OnInit {
                 this.lyrElt = {
                     folio: element.customer.creditId,
                     fecha: element.customer.birthday,
+                    crtdBy: element.crtd_by,
                     name:  element.customer.name,
                     fisrtLastName: element.customer.paternalLastName,
                     secondLastName: element.customer.motherLastName,
@@ -129,6 +133,27 @@ export class EnrolmentsComponent implements OnInit {
                     (error:any) => { }
                 );
         }
+    }
+
+    exportExcel(){
+        const httpOptions = {
+            responseType: 'arraybuffer',
+            headers: new Headers()
+        };
+        // @ts-ignore
+        this.httpClient.get<Blob>(environment.apiUrl+"/export/enrolments/excel/"+this.userCurrent.idUser,httpOptions)
+        .subscribe(
+            (response: HttpResponse<Blob>) => {
+                let binaryData = [];
+                binaryData.push(response);
+                let downloadLink = document.createElement('a');
+                downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, { type: 'blob' }));
+                downloadLink.setAttribute('download', "enrolados.xlsx");
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+            },
+            (error:any) => { console.log(error); this.loading = true;}
+        );
     }
 
     dlgLayerDocument(creditId: any){

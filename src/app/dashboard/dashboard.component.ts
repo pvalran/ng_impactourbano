@@ -8,7 +8,7 @@ import {LayerGovernmentComponent} from "../dialogs/layer-government/layer-govern
 import {LayerBiometricComponent} from "../dialogs/layer-biometric/layer-biometric.component";
 import {LayerDocumentComponent} from "../dialogs/layer-document/layer-document.component";
 import {IObjRequest} from "../interfaces/iobj-request";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpResponse} from "@angular/common/http";
 import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import * as _moment from 'moment';
@@ -26,6 +26,7 @@ const moment =  _moment;
 export interface layerElement {
     folio: string;
     fecha: string;
+    crtdBy: string;
     email: string;
     mobile: string;
     status: string;
@@ -92,7 +93,7 @@ export class DashboardComponent {
 
     pageEvent: PageEvent;
     pageSize = 10;
-    displayedColumns: string[] = ['folio', 'fecha', 'email','mobile','status',
+    displayedColumns: string[] = ['folio', 'fecha','crtdBy', 'email','mobile','status',
         'layerDocument', 'layerBiometic', 'layerGovernment','reporte','solicitud'];
     toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
     dataSource = new MatTableDataSource<layerElement>(ELEMENT_DATA);
@@ -116,18 +117,9 @@ export class DashboardComponent {
         const endOfMonth = moment().endOf('month').format('YYYY-MM-DD');
         this.search.start_date = startOfMonth;
         this.search.end_date = endOfMonth;
-
         this.dataSource.paginator = this.paginator;
         ELEMENT_DATA = [];
         this.filterSearch();
-        /*this.httpClient.get<IObjRequest>('/catalogies/catalogy/customerstransacion').subscribe(
-            (result) => {
-                this.dataTable(result.data);
-                },
-            (error) => {
-                console.log(<any>error);
-            }
-        );*/
     }
 
     dlgLayerDocument(creditId: any){
@@ -185,6 +177,62 @@ export class DashboardComponent {
         );
     }
 
+    exportExcel(){
+        let startdate = this.search.start_date;
+        let enddate = this.search.end_date;
+        let status = this.search.status.toString();
+
+        let dataFilter = {
+            startdate: this.search.start_date,
+            enddate: this.search.end_date,
+            status: this.search.status.toString()
+        }
+
+        const httpOptions = {
+            responseType: 'arraybuffer',
+            headers: new Headers()
+        };
+
+        // @ts-ignore
+        this.httpClient.post<Blob>(environment.apiUrl+"/export/customerstransaction/excel",dataFilter,httpOptions)
+        .subscribe(
+            (response: HttpResponse<Blob>) => {
+                    console.log(response);
+                    let filename: string = this.getFileName(response)
+                    let binaryData = [];
+                    binaryData.push(response);
+                    let downloadLink = document.createElement('a');
+                    downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, { type: 'blob' }));
+                    downloadLink.setAttribute('download', "transaciones.xlsx");
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                },
+            (error:any) => { console.log(error); this.loading = true;}
+        );
+    }
+
+    downLoadFile(data: any, type: string) {
+        let blob = new Blob([data], { type: type});
+        let url = window.URL.createObjectURL(blob);
+        let pwa = window.open(url);
+        if (!pwa || pwa.closed || typeof pwa.closed == 'undefined') {
+            alert( 'Please disable your Pop-up blocker and try again.');
+        }
+    }
+
+    getFileName(response: HttpResponse<Blob>) {
+        let filename: string;
+        try {
+            const contentDisposition: string = response.headers.get('content-disposition');
+            const r = /(?:filename=")(.+)(?:;")/
+            filename = r.exec(contentDisposition)[1];
+        }
+        catch (e) {
+            filename = 'myfile.txt'
+        }
+        return filename
+    }
+
 
 
     filterSearch(){
@@ -202,43 +250,41 @@ export class DashboardComponent {
         this.dataSource.data = ELEMENT_DATA;
         this.loading = false;
         this.httpClient.post<IObjRequest>(environment.apiUrl+"/filter/customerstransacion",dataFilter)
-            .subscribe(
-                (response:any) => {
-                    this.dataTable(response.data);
-                    this.loading = true;
-                },
-                (error:any) => { console.log(error); this.loading = true;}
-            );
+        .subscribe(
+            (response:any) => {
+                this.dataTable(response.data);
+                this.loading = true;
+            },
+            (error:any) => { console.log(error); this.loading = true;}
+        );
 
         this.httpClient.post<IObjRequest>(environment.apiUrl+"/filter/statisticstransacion",dataFilter)
-            .subscribe(
-                (response:any) => {
+        .subscribe(
+            (response:any) => {
 
-                    this.statistics.TOTAL = 0;
-                    this.statistics.APPROVED = 0;
-                    this.statistics.REJECTED = 0;
-                    this.statistics.PENDING = 0;
-                    response.data.map((data) => {
-                        this.statistics.TOTAL = this.statistics.TOTAL + data.total;
-                        switch (data.status.trim()) {
-                            case 'A':
-                                this.statistics.APPROVED = data.total;
-                                break;
-                            case 'R':
-                                this.statistics.REJECTED = data.total;
-                                break;
-                            case 'P':
-                                this.statistics.PENDING= data.total;
-                                break;
+                this.statistics.TOTAL = 0;
+                this.statistics.APPROVED = 0;
+                this.statistics.REJECTED = 0;
+                this.statistics.PENDING = 0;
+                response.data.map((data) => {
+                    this.statistics.TOTAL = this.statistics.TOTAL + data.total;
+                    switch (data.status.trim()) {
+                        case 'A':
+                            this.statistics.APPROVED = data.total;
+                            break;
+                        case 'R':
+                            this.statistics.REJECTED = data.total;
+                            break;
+                        case 'P':
+                            this.statistics.PENDING= data.total;
+                            break;
 
-                        }
-                    })
-                    this.loading = true;
-                },
-                (error:any) => { this.loading = true; }
-            );
-
-
+                    }
+                })
+                this.loading = true;
+            },
+            (error:any) => { this.loading = true; }
+        );
     }
 
     public onDate(event): void {
@@ -252,6 +298,7 @@ export class DashboardComponent {
             data.forEach((element) => {
                 this.lyrElt = {
                     folio: element.creditId,
+                    crtdBy: element.crtd_by,
                     fecha: element.crtd_on,
                     email:  element.customer.email,
                     mobile: element.mobile,

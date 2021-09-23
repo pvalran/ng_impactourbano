@@ -5,12 +5,21 @@
       <div fxFlex="100" class="card">
         <div  class="flex-container"
               fxLayout="row"
-              fxLayoutAlign="space-between center">
+              fxLayout.xs="column"
+              fxLayoutAlign="space-between center"
+              fxLayout.xs="start center"
+        >
           <button mat-flat-button (click)="newUser()"><mat-icon>add_circle</mat-icon>Nuevo</button>
           &nbsp;
-          <mat-form-field>
-            <input matInput placeholder="Buscar">
-          </mat-form-field>
+            <mat-form-field fxFlex="30%">
+              <input matInput placeholder="Buscar">
+            </mat-form-field>
+
+          <div fxFlex="30%" fxLayoutAlign="end center">
+            <button mat-raised-button (click)="exportExcel()">
+              <mat-icon>file_download</mat-icon>&nbsp;Excel
+            </button>
+          </div>
         </div>
         <table mat-table #table [dataSource]="dataSource" matSort >
           <ng-container matColumnDef="idUser">
@@ -52,7 +61,10 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator #paginator  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        <mat-paginator #paginator  [pageSize]="pageSize"
+                       [pageSizeOptions]="[5, 10, 20]"
+                       (page)="pageEvent = $event"
+                       showFirstLastButtons></mat-paginator>
       </div>
     </div>
   </div>

@@ -843,7 +843,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"login-body\">\n    <app-loading [hidden]=\"loading\"></app-loading>\n    <div class=\"login-panel ui-fluid\">\n        <div class=\"ui-g\">\n            <div class=\"ui-g-12 logo-container\">\n                <img src=\"assets/images/pimalogo.png\"/>\n                <h1>Bienvenido(a)</h1>\n                <h2>Ingresa tu datos</h2>\n            </div>\n\n            <div fxLayout=\"row\" fxFlex=\"100\">\n                <mat-form-field fxFlex=\"100\" appearance=\"outline\">\n                    <mat-label>Nombre del usuario</mat-label>\n                    <input matInput placeholder=\"Nombre del usuario\" [(ngModel)]=\"username\" name=\"username\" required>\n                </mat-form-field>\n            </div>\n            <div fxLayout=\"row\" fxFlex=\"100\">\n                <mat-form-field fxFlex=\"100\" appearance=\"outline\">\n                    <mat-label>Contraseña</mat-label>\n                    <input matInput placeholder=\"contraseña\" [(ngModel)]=\"password\" type=\"password\" name=\"password\" required>\n                </mat-form-field>\n            </div>\n            <div fxLayout=\"row\"  fxFlex=\"100\">\n                <button mat-raised-button fxFlex=\"100\" (click)=\"login()\" color=\"primary\" style=\"margin-top:12px;\">Login</button>\n            </div>\n\n            <div fxLayout=\"row\"  fxFlex=\"100\">\n                <span>Olvidaste tú contraseña? <a (click)=\"restorechange()\">Click Aqui</a></span>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "\n<div class=\"login-body\">\n    <app-loading [hidden]=\"loading\"></app-loading>\n    <div class=\"login-panel ui-fluid\">\n        <div class=\"ui-g\">\n            <div class=\"ui-g-12 logo-container\">\n                <img src=\"assets/images/pimalogo.png\"/>\n                <h1>Bienvenido(a)</h1>\n                <h2>Ingresa tu datos</h2>\n            </div>\n            <div fxLayout=\"row\" fxFlex=\"100\">\n                <mat-form-field fxFlex=\"100\" appearance=\"outline\">\n                    <mat-label>Nombre del usuario</mat-label>\n                    <input matInput placeholder=\"Nombre del usuario\" [(ngModel)]=\"username\" name=\"username\" required>\n                </mat-form-field>\n            </div>\n            <div fxLayout=\"row\" fxFlex=\"100\">\n                <mat-form-field fxFlex=\"100\" appearance=\"outline\">\n                    <mat-label>Contraseña</mat-label>\n                    <input matInput placeholder=\"contraseña\" [(ngModel)]=\"password\" type=\"password\" name=\"password\" required>\n                </mat-form-field>\n            </div>\n            <div fxLayout=\"row\"  fxFlex=\"100\">\n                <button mat-raised-button fxFlex=\"100\" (click)=\"login()\" color=\"primary\" style=\"margin-top:12px;\">Login</button>\n            </div>\n\n            <div fxLayout=\"row\"  fxFlex=\"100\">\n                <span>Olvidaste tú contraseña? <a (click)=\"restorechange()\">Click Aqui</a></span>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1267,13 +1267,85 @@ var MenuComponent = /** @class */ (function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MenuService", function() { return MenuService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
+
+
+var ITEMSADMIN = [
+    {
+        state: 'dashboard',
+        name: 'Dashboard',
+        type: 'link',
+        icon: 'dashboard'
+    }, {
+        state: 'enrolments',
+        name: 'Enrolamientos',
+        type: 'sub',
+        icon: 'person',
+        children: [
+            { state: 'list', name: 'listado', icon: 'list' }
+        ]
+    }, {
+        state: 'administration',
+        name: 'Administración',
+        type: 'sub',
+        icon: 'supervisor_account',
+        children: [
+            { state: 'list', name: 'Usuarios', icon: 'supervisor_account' },
+            { state: 'branch', name: 'Sucursales', icon: 'supervisor_account' }
+        ]
+    }
+];
+var ITEMPROMOTOR = [
+    {
+        state: 'dashboard',
+        name: 'Dashboard',
+        type: 'link',
+        icon: 'dashboard'
+    }, {
+        state: 'enrolments',
+        name: 'Enrolamientos',
+        type: 'sub',
+        icon: 'person',
+        children: [
+            { state: 'list', name: 'listado', icon: 'list' }
+        ]
+    }, {
+        state: 'administration',
+        name: 'Administración',
+        type: 'sub',
+        icon: 'supervisor_account',
+        children: [
+            { state: 'leaflet', name: 'Prospectos', icon: 'list' }
+        ]
+    }
+];
+var ITEMCONSULTA = [
+    {
+        state: 'dashboard',
+        name: 'Dashboard',
+        type: 'link',
+        icon: 'dashboard'
+    }, {
+        state: 'enrolments',
+        name: 'Enrolamientos',
+        type: 'sub',
+        icon: 'person',
+        children: [
+            { state: 'list', name: 'listado', icon: 'list' }
+        ]
+    }
+];
 var MENUITEMS = [
     {
         state: 'dashboard',
@@ -1300,16 +1372,30 @@ var MENUITEMS = [
     }
 ];
 var MenuService = /** @class */ (function () {
-    function MenuService() {
+    function MenuService(http, authUser) {
+        this.http = http;
+        this.authUser = authUser;
+        this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser()));
     }
     MenuService.prototype.getAll = function () {
-        return MENUITEMS;
+        switch (this.userCurrent.profileId) {
+            case "1":
+                return ITEMSADMIN;
+            case "2":
+                return ITEMPROMOTOR;
+            case "3":
+                return ITEMCONSULTA;
+            default:
+                return MENUITEMS;
+        }
     };
     MenuService.prototype.add = function (menu) {
         MENUITEMS.push(menu);
     };
     MenuService = __decorate([
-        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])()
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"],
+            _services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"]])
     ], MenuService);
     return MenuService;
 }());

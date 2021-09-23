@@ -8,6 +8,7 @@ import {AdministradorGuard} from "../guard/administrador.guard";
 import {PromotorGuard} from "../guard/promotor.guard";
 import {ConsultaGuard} from "../guard/consulta.guard";
 import {SyncGuard} from "../guard/sync.guard";
+import {BranchofficeComponent} from "./branchoffice/branchoffice.component";
 
 export const AppsRoutes: Routes = [
   {
@@ -28,6 +29,10 @@ export const AppsRoutes: Routes = [
       path: 'leaflet',
       component: LeafletComponent,
       canActivate: [PromotorGuard]
+    },{
+      path: 'branch',
+      component: BranchofficeComponent,
+      canActivate: [AdministradorGuard]
     }]
   }
 ];

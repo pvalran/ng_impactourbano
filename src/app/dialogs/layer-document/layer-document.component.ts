@@ -52,10 +52,8 @@ export class LayerDocumentComponent implements OnInit {
         );
         this.httpClient.get<IObjRequest>(environment.apiUrl+"/forms/transaction/"+this.creditId+"/1").subscribe(
             (result) => {
-
                 if (result.data != null) {
                     this.ObjData = result.data;
-
                     if (this.ObjData.hasOwnProperty("estatus")) {
                         this.ine.mrz = this.ObjData.mensaje;
                         this.ine.valido = this.ObjData.mensaje;
@@ -82,7 +80,5 @@ export class LayerDocumentComponent implements OnInit {
         );
         this.imageAnverso = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${image}`);
         this.imageReverso = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${image}`);
-
     }
-
 }

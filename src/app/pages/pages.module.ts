@@ -23,6 +23,8 @@ import {MatCardModule} from "@angular/material/card";
 import { LeafletComponent } from './leaflet/leaflet.component';
 import { EditionComponent } from './leaflet/edition/edition.component';
 import {ShareModule} from "../share/share.module";
+import { BranchofficeComponent } from './branchoffice/branchoffice.component';
+import { EditionBranchComponent } from './branchoffice/edition-branch/edition-branch.component';
 
 
 
@@ -54,14 +56,17 @@ import {ShareModule} from "../share/share.module";
     ],
     entryComponents:[
         UsuarioComponent,
-        EditionComponent
+        EditionComponent,
+        EditionBranchComponent
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   declarations: [EnrolmentsComponent,
       AdministrationComponent,
       UsuarioComponent,
       LeafletComponent,
-      EditionComponent
+      EditionComponent,
+      BranchofficeComponent,
+      EditionBranchComponent
 
   ]
 })

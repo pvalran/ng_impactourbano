@@ -8,6 +8,10 @@ import {Router} from "@angular/router";
 import { DOCUMENT } from '@angular/common';
 import { ConfirmDialogService } from "../../../services/confirm-dialog.service";
 import {environment} from "../../../../environments/environment";
+import {Branchoffice} from "../../../interfaces/branchoffice";
+
+
+
 
 @Component({
     selector: 'app-usuario',
@@ -21,6 +25,7 @@ export class UsuarioComponent implements OnInit {
     passwordVisible: boolean;
     selected = '1';
     sucursal = '1';
+    branchies: Branchoffice[] =  []
     ObjUser: User ={
         idUser: '',
         name: '',
@@ -59,6 +64,31 @@ export class UsuarioComponent implements OnInit {
             this.userVisible = true;
         }
         this.passwordVisible = data.model.dataPassword;
+
+        this.httpClient.get<IObjRequest>(environment.apiUrl+'/forms/branchoffice').subscribe(
+            (response) => {
+                if(response.data.length > 0){
+                    response.data.forEach((element) => {
+                        let lyrBranch = {
+                            id: element.id,
+                            numberBranch: element.numberBranch,
+                            name: element.name,
+                            city: element.city,
+                            state: element.state,
+                            status_flag: element.status_flag,
+                        }
+                        this.branchies.push(lyrBranch);
+                    });
+                } else {
+
+                }
+            },
+            (error) => {
+
+            }
+        );
+
+
     }
 
     ngOnInit() {

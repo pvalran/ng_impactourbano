@@ -3,10 +3,15 @@
     <div class="layout-content">
         <div fxFlex="100" class="ui-g dashboard">
             <div fxFlex="100" class="card">
-                <div fxLayout fxLayoutAlign="end center">
+                <div fxLayout fxLayoutAlign="space-between center">
                     <mat-form-field fxFlex="30%">
                         <input matInput (keydown.enter)="applyFilter($event.target.value)" placeholder="Buscar nombre,email">
                     </mat-form-field>
+                    <div fxFlex="30%" fxLayoutAlign="end center">
+                        <button mat-raised-button (click)="exportExcel()">
+                            <mat-icon>file_download</mat-icon>&nbsp;Excel
+                        </button>
+                    </div>
                 </div>
 
                 <table mat-table #table [dataSource]="dataSource" matSort >
@@ -18,6 +23,11 @@
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solictud</th>
                         <td mat-cell *matCellDef="let element"> {{element.fecha | date: 'yyyy-MM-dd'}}  </td>
                     </ng-container>
+                    <ng-container matColumnDef="crtdBy">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Promotor</th>
+                        <td mat-cell *matCellDef="let element"> {{element.crtdBy }} </td>
+                    </ng-container>
+
                     <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>
                         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
@@ -50,10 +60,11 @@
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
-                <mat-paginator #paginator  [pageSize]="pageSize"
-                               [pageSizeOptions]="[5, 10, 20]"
-                               (page)="pageEvent = $event"
-                               showFirstLastButtons></mat-paginator>
+                <mat-paginator  #paginator
+                                [pageSize]="pageSize"
+                                [pageSizeOptions]="[5, 10, 20]"
+                                (page)="pageEvent = $event"
+                                showFirstLastButtons></mat-paginator>
             </div>
         </div>
     </div>

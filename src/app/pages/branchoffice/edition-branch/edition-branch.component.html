@@ -1,0 +1,73 @@
+<app-loading [hidden]="loading"></app-loading>
+<h1 mat-dialog-title style="margin-bottom:4px;">Registro de sucursal</h1>
+<h4 class="body" style="margin: 0px 0px 12px 0px;">
+    <mat-label fxFlex="100" class="mat-caption">Todos los campos son obligatorios</mat-label>
+</h4>
+<div mat-dialog-content>
+    <div class="container">
+        <div id="content">
+            <div fxLayout="column"  fxLayoutAlign="start">
+                <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <mat-form-field fxFlex="50" fxFlex.sm="100">
+                        <mat-label>Nombre de Sucursal</mat-label>
+                        <input matInput [(ngModel)]="ObjBranch.name" placeholder="Nombre de sucursal">
+                    </mat-form-field>
+
+                    <mat-form-field fxFlex="50" fxFlex.sm="100">
+                        <mat-label>Ciudad</mat-label>
+                        <input matInput [(ngModel)]="ObjBranch.city" placeholder="Ciudad">
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row">
+                    <mat-form-field fxFlex="100">
+                        <mat-label>Estado</mat-label>
+                        <mat-select [(ngModel)]="ObjBranch.state" [(value)]="stateSelected" placeholder="Estado">
+                            <mat-option value="1">Aguascalientes</mat-option>
+                            <mat-option value="2">Baja California</mat-option>
+                            <mat-option value="3">Baja California Sur</mat-option>
+                            <mat-option value="4">Campeche</mat-option>
+                            <mat-option value="5">Coahuila de Zaragoza</mat-option>
+                            <mat-option value="6">Colima</mat-option>
+                            <mat-option value="7">Chiapas</mat-option>
+                            <mat-option value="8">Chihuahua</mat-option>
+                            <mat-option value="9">Ciudad de México</mat-option>
+                            <mat-option value="10">Durango</mat-option>
+                            <mat-option value="11">Guanajuato</mat-option>
+                            <mat-option value="12">Guerrero</mat-option>
+                            <mat-option value="13">Hidalgo</mat-option>
+                            <mat-option value="14">Jalisco</mat-option>
+                            <mat-option value="15">México</mat-option>
+                            <mat-option value="16">Michoacán de Ocampo</mat-option>
+                            <mat-option value="17">Morelos</mat-option>
+                            <mat-option value="18">Nayarit</mat-option>
+                            <mat-option value="19">Nuevo León</mat-option>
+                            <mat-option value="20">Oaxaca</mat-option>
+                            <mat-option value="21">Puebla</mat-option>
+                            <mat-option value="22">Querétaro</mat-option>
+                            <mat-option value="23">Quintana Roo</mat-option>
+                            <mat-option value="24">San Luis Potosí</mat-option>
+                            <mat-option value="25">Sinaloa</mat-option>
+                            <mat-option value="26">Sonora</mat-option>
+                            <mat-option value="27">Tabasco</mat-option>
+                            <mat-option value="28">Tamaulipas</mat-option>
+                            <mat-option value="29">Tlaxcala</mat-option>
+                            <mat-option value="30">Veracruz de Ignacio de la Llave</mat-option>
+                            <mat-option value="31">Yucatán</mat-option>
+                            <mat-option value="32">Zacatecas</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div *ngIf="branchVisible" fxLayout="row" fxFlex="100"
+                     fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <button mat-flat-button (click)="registar()">Registrar sucursal</button>
+                </div>
+                <div *ngIf="!branchVisible" fxLayout="row" fxFlex="100" fxLayoutGap="16px" fxLayoutAlign="flex-start">
+                    <button mat-flat-button (click)="update()">Actualizar sucursal</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+

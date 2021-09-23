@@ -19,7 +19,7 @@ export class SyncGuard implements CanActivate {
             this.router.navigate(["/"]);
         }
         let userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser())) ;
-        if ((userCurrent.profileId == "2") || (userCurrent.profileId == "3")) {
+        if ((userCurrent.profileId == "1") || (userCurrent.profileId == "2") || (userCurrent.profileId == "3")) {
             return true;
         } else {
             return false;
