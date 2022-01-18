@@ -9939,7 +9939,7 @@ window.global = window;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /develop/cnvsoltek/tablero/src/polyfills.ts */"./src/polyfills.ts");
+module.exports = __webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\polyfills.ts */"./src/polyfills.ts");
 
 
 /***/ })

@@ -1,4 +1,10 @@
 {
+
+    "/forms/download/*": {
+        "target": "https://pimaid.dev:8443/Cpttablero",
+        "secure": false,
+        "changeOrigin": true
+    },
     "/forms/*": {
         "target": "http://localhost:8080",
         "secure": false,

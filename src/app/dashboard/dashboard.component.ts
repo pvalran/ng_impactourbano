@@ -29,6 +29,7 @@ export interface layerElement {
     crtdBy: string;
     email: string;
     mobile: string;
+    enrolment: string;
     status: string;
     layerDocument: string;
     layerBiometic: string;
@@ -93,28 +94,26 @@ export class DashboardComponent {
 
     pageEvent: PageEvent;
     pageSize = 10;
-    displayedColumns: string[] = ['folio', 'fecha','crtdBy', 'email','mobile','status',
+    displayedColumns: string[] = ['folio', 'fecha','crtdBy', 'email','mobile','enrolment','status',
         'layerDocument', 'layerBiometic', 'layerGovernment','reporte','solicitud'];
     toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
     dataSource = new MatTableDataSource<layerElement>(ELEMENT_DATA);
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
-
     constructor(public dialog: MatDialog,
                 private router: Router,
                 private service: ServicesDataService,
                 private srvDetalle: ServicesDetalleCreditoService,
                 private httpClient: HttpClient,
     ) {
-
         this.urlreport = environment.apiUrl+"/pdf/identidadreport";
         ELEMENT_DATA = [];
     }
 
     ngOnInit() {
         let month = moment().format('MM');
-        const startOfMonth = moment().startOf('month').format('YYYY-MM-DD');
-        const endOfMonth = moment().endOf('month').format('YYYY-MM-DD');
+        const startOfMonth = moment().startOf('month');
+        const endOfMonth = moment().endOf('month');
         this.search.start_date = startOfMonth;
         this.search.end_date = endOfMonth;
         this.dataSource.paginator = this.paginator;
@@ -129,7 +128,6 @@ export class DashboardComponent {
         dialogConfig.data = {
             idDocument: 5
         };
-
         this.dialog.open(LayerDocumentComponent, {data: {
             model:{dataModal: creditId} }
         });
@@ -169,7 +167,6 @@ export class DashboardComponent {
                 dialogConfig.autoFocus = false;
                 dialogConfig.disableClose = false;
                 this.dialog.open(DialogDetailComponent, dialogConfig);
-
             },
             (error) => {
                 this.loading = true;
@@ -241,8 +238,8 @@ export class DashboardComponent {
         let status = this.search.status.toString();
 
         let dataFilter = {
-            startdate: this.search.start_date,
-            enddate: this.search.end_date,
+            startdate: this.search.start_date.format('YYYY-MM-DD'),
+            enddate: this.search.end_date.format('YYYY-MM-DD'),
             status: this.search.status.toString()
         }
 
@@ -296,12 +293,21 @@ export class DashboardComponent {
         ELEMENT_DATA = [];
         if(data.length > 0){
             data.forEach((element) => {
+                let mobile = "";
+                let email = "";
+
+                if (element.enrolment != 'Cónyuge') {
+                    email = element.email;
+                    mobile = element.mobile;
+                }
+
                 this.lyrElt = {
                     folio: element.creditId,
                     crtdBy: element.crtd_by,
                     fecha: element.crtd_on,
-                    email:  element.customer.email,
-                    mobile: element.mobile,
+                    email:  email,
+                    mobile: mobile,
+                    enrolment: element.enrolment,
                     status: element.status,
                     layerDocument: element.layerDocument,
                     layerBiometic: element.layerBiometric,

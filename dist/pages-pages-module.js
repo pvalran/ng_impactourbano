@@ -971,7 +971,7 @@ var EditionBranchComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Enrolamientos</h1>\n<div fxLayout=\"row wrap\">\n    <div class=\"layout-content\">\n        <div fxFlex=\"100\" class=\"ui-g dashboard\">\n            <div fxFlex=\"100\" class=\"card\">\n                <div fxLayout fxLayoutAlign=\"space-between center\">\n                    <mat-form-field fxFlex=\"30%\">\n                        <input matInput (keydown.enter)=\"applyFilter($event.target.value)\" placeholder=\"Buscar nombre,email\">\n                    </mat-form-field>\n                    <div fxFlex=\"30%\" fxLayoutAlign=\"end center\">\n                        <button mat-raised-button (click)=\"exportExcel()\">\n                            <mat-icon>file_download</mat-icon>&nbsp;Excel\n                        </button>\n                    </div>\n                </div>\n\n                <table mat-table #table [dataSource]=\"dataSource\" matSort >\n                    <ng-container matColumnDef=\"folio\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.folio}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fecha\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solictud</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fecha | date: 'yyyy-MM-dd'}}  </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"crtdBy\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Promotor</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.crtdBy }} </td>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"name\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fisrtLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fisrtLastName}} </td>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"secondLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.secondLastName}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.status}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerDocument\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa documento</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerDocument(element.folio)\">{{element.layerDocument}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerBiometic\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa Selfie</th>\n                        <td mat-cell *matCellDef=\"let element\"  >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerBiometric(element.folio)\"> {{element.layerBiometic}}</a>\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n                <mat-paginator  #paginator\n                                [pageSize]=\"pageSize\"\n                                [pageSizeOptions]=\"[5, 10, 20]\"\n                                (page)=\"pageEvent = $event\"\n                                showFirstLastButtons></mat-paginator>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n"
+module.exports = "<h1 mat-dialog-title>Enrolamientos</h1>\n<app-loading [hidden]=\"loading\"></app-loading>\n<div fxLayout=\"row wrap\">\n    <div class=\"layout-content\">\n        <div fxFlex=\"100\" class=\"ui-g dashboard\">\n            <div fxFlex=\"100\" class=\"card\">\n                <div fxLayout fxLayoutAlign=\"space-between center\">\n                    <mat-form-field fxFlex=\"30%\">\n                        <input matInput (keydown.enter)=\"applyFilter($event.target.value)\" placeholder=\"Buscar nombre,email\">\n                    </mat-form-field>\n                    <div fxFlex=\"30%\" fxLayoutAlign=\"end center\">\n                        <button mat-raised-button (click)=\"exportExcel()\">\n                            <mat-icon>file_download</mat-icon>&nbsp;Excel\n                        </button>\n                    </div>\n                </div>\n\n                <table mat-table #table [dataSource]=\"dataSource\" matSort >\n                    <ng-container matColumnDef=\"folio\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.folio}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fecha\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solictud</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fecha | date: 'yyyy-MM-dd':'UTC'}}  </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"crtdBy\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Promotor</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.crtdBy }} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"enrolment\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Enrolamiento</th>\n                        <td mat-cell *matCellDef=\"let element\">{{element.enrolment}}</td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"name\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fisrtLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fisrtLastName}} </td>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"secondLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.secondLastName}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.status}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerDocument\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa documento</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerDocument(element.folio)\">{{element.layerDocument}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerBiometic\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa Selfie</th>\n                        <td mat-cell *matCellDef=\"let element\"  >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerBiometric(element.folio)\"> {{element.layerBiometic}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"solicitud\" >\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Solicitud</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a  [href]=\"urlsolicitud+'/'+ element.folio\" target=\"_blank\" mat-icon-button matTooltip=\"Solicitud de credito\" matTooltipClass=\"tooltip\">\n                                <mat-icon>assignment</mat-icon>\n                            </a>\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n                <mat-paginator  #paginator\n                                [pageSize]=\"pageSize\"\n                                [pageSizeOptions]=\"[5, 10, 20]\"\n                                (page)=\"pageEvent = $event\"\n                                showFirstLastButtons></mat-paginator>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -982,7 +982,7 @@ module.exports = "<h1 mat-dialog-title>Enrolamientos</h1>\n<div fxLayout=\"row w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ":host ::ng-deep {\n  height: 100%; }\n\n.layout-content {\n  width: 100%; }\n\ntable {\n  width: 100%; }\n\nth.mat-sort-header-sorted {\n  color: black; }\n\ntr:hover {\n  background: rgba(205, 211, 216, 0.35); }\n\ntr:active {\n  background: #efefef; }\n\n.button-tooltip {\n  margin-top: 16px; }\n\n.tooltip {\n  background: #ff9c00; }\n\n.text-link {\n  cursor: default; }\n\n.text-link:hover {\n  cursor: pointer; }\n"
+module.exports = ":host ::ng-deep {\n  height: 100%; }\n\n.app-login {\n  background-color: 1; }\n\n.layout-content {\n  width: 100%; }\n\ntable {\n  width: 100%; }\n\nth.mat-sort-header-sorted {\n  color: black; }\n\ntr:hover {\n  background: rgba(205, 211, 216, 0.35); }\n\ntr:active {\n  background: #efefef; }\n\n.button-tooltip {\n  margin-top: 16px; }\n\n.tooltip {\n  background: #ff9c00; }\n\n.text-link {\n  cursor: default; }\n\n.text-link:hover {\n  cursor: pointer; }\n"
 
 /***/ }),
 
@@ -1029,12 +1029,14 @@ var EnrolmentsComponent = /** @class */ (function () {
         this.dialog = dialog;
         this.authUser = authUser;
         this.httpClient = httpClient;
-        this.loading = true;
-        this.displayedColumns = ['folio', 'fecha', 'crtdBy', 'name', 'fisrtLastName', 'secondLastName', 'status',
-            'layerDocument', 'layerBiometic'];
+        this.loading = false;
+        this.urlsolicitud = '';
+        this.displayedColumns = ['folio', 'fecha', 'crtdBy', 'enrolment', 'name', 'fisrtLastName', 'secondLastName', 'status',
+            'layerDocument', 'layerBiometic', 'solicitud'];
         this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](ELEMENT_DATA);
         this.pageSize = 10;
         ELEMENT_DATA = [];
+        this.urlsolicitud = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl + "/pdf/solicitud/view";
         this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser()));
     }
     EnrolmentsComponent.prototype.ngOnInit = function () {
@@ -1046,21 +1048,25 @@ var EnrolmentsComponent = /** @class */ (function () {
             if (result.data.length > 0) {
                 result.data.forEach(function (element) {
                     _this.lyrElt = {
-                        folio: element.customer.creditId,
+                        folio: element.creditId,
                         fecha: element.crtd_on,
                         crtdBy: element.crtd_by,
+                        enrolment: element.enrolment,
                         name: element.customer.name,
                         fisrtLastName: element.customer.paternalLastName,
                         secondLastName: element.customer.motherLastName,
                         status: element.status,
                         layerDocument: element.layerDocument,
-                        layerBiometic: element.layerBiometric
+                        layerBiometic: element.layerBiometric,
+                        solicitud: element.solicitud
                     };
                     ELEMENT_DATA.push(_this.lyrElt);
-                    _this.dataSource.data = ELEMENT_DATA;
                 });
+                _this.dataSource.data = ELEMENT_DATA;
+                _this.loading = true;
             }
         }, function (error) {
+            _this.loading = true;
         });
     };
     EnrolmentsComponent.prototype.dataTable = function (data) {
@@ -1073,16 +1079,18 @@ var EnrolmentsComponent = /** @class */ (function () {
                     folio: element.customer.creditId,
                     fecha: element.customer.birthday,
                     crtdBy: element.crtd_by,
+                    enrolment: element.enrolment,
                     name: element.customer.name,
                     fisrtLastName: element.customer.paternalLastName,
                     secondLastName: element.customer.motherLastName,
                     status: element.status,
                     layerDocument: element.layerDocument,
-                    layerBiometic: element.layerBiometric
+                    layerBiometic: element.layerBiometric,
+                    solicitud: element.solicitud
                 };
                 ELEMENT_DATA.push(_this.lyrElt);
-                _this.dataSource.data = ELEMENT_DATA;
             });
+            this.dataSource.data = ELEMENT_DATA;
         }
     };
     EnrolmentsComponent.prototype.isNaN = function (val) {
@@ -1105,8 +1113,9 @@ var EnrolmentsComponent = /** @class */ (function () {
                 if (response.result) {
                     _this.dataSource.filter = '';
                     _this.dataTable(response.data);
+                    _this.loading = true;
                 }
-            }, function (error) { });
+            }, function (error) { _this.loading = true; });
         }
     };
     EnrolmentsComponent.prototype.exportExcel = function () {
@@ -1150,6 +1159,8 @@ var EnrolmentsComponent = /** @class */ (function () {
                 model: { dataModal: creditId }
             }
         });
+    };
+    EnrolmentsComponent.prototype.dlgSolicitud = function (creditId) {
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),

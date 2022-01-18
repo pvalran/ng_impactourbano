@@ -1,6 +1,11 @@
 :host ::ng-deep {
 	height: 100%;
 }
+
+.app-login{
+  background-color: alpha($color: #000000);
+}
+
 .layout-content{
 	width: 100%;
 }

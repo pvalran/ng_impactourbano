@@ -34,9 +34,44 @@ export class DetailComponent implements OnInit {
   typeOcupacion: string[] = ['EMPLEADO', 'FUNCIONARIO', 'DIRECTIVO', 'SOCIO,DUEÑO,PROPIETARIO'
       , 'PROFESIONAL INDEPENDIENTE', 'PENSIONADO', 'JUBILADO', 'OTRO'];
   typeLaboral: string[] = ['COMERCIO', 'INDUSTRIA', 'SERVICIO', 'AGROPECUARIO', 'CONSTRUCCION'];
+  typeStates: string [] = [
+      "Aguascalientes",
+      "Baja California",
+      "Baja California Sur",
+      "Campeche",
+      "Coahuila",
+      "Colima",
+      "Chiapas",
+      "Chihuahua",
+      "Ciudad de México",
+      "Durango",
+      "Guanajuato",
+      "Guerrero",
+      "Hidalgo",
+      "Jalisco",
+      "México",
+      "Michoacán",
+      "Morelos",
+      "Nayarit",
+      "Nuevo León",
+      "Oaxaca",
+      "Puebla",
+      "Querétaro",
+      "Quintana Roo",
+      "San Luis Potosí",
+      "Sinaloa",
+      "Sonora",
+      "Tabasco",
+      "Tamaulipas",
+      "Tlaxcala",
+      "Veracruz",
+      "Yucatán",
+      "Zacatecas"
+  ];
   constructor( private srvDetalle: ServicesDetalleCreditoService) {
       if (srvDetalle.ObjDetalleCredito.work != null) {
           this.ObjWork = srvDetalle.ObjDetalleCredito.work;
+          this.ObjWork.state = this.typeStates[this.ObjWork.state];
       }
   }
 

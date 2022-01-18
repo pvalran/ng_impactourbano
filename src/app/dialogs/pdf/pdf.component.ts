@@ -8,6 +8,7 @@ import {IObjRequest} from '../../interfaces/iobj-request';
 import {HttpClient} from '@angular/common/http';
 import {toBase64String} from '@angular/compiler/src/output/source_map';
 import {DOCUMENT} from '@angular/common';
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -17,7 +18,7 @@ import {DOCUMENT} from '@angular/common';
 })
 export class PdfComponent implements OnInit {
     @Input() idDocument = '';
-    @ViewChild('iframe') iframe!: ElementRef;
+    @ViewChild('ifrm') iframe!: ElementRef;
 
     IdDocument: number;
     imageSource: any;
@@ -32,7 +33,7 @@ export class PdfComponent implements OnInit {
     }
 
     ngOnInit() {
-        /*this.httpClient.get<IObjRequest>("/forms/download/"+this.IdDocument).subscribe(
+        this.httpClient.get<IObjRequest>(environment.apiUrl+"/forms/download/"+this.IdDocument).subscribe(
             (result) => {
                 if(result.data != null){
                     const Base64String = `${result.data}`;
@@ -43,17 +44,15 @@ export class PdfComponent implements OnInit {
                     // i.e. display the PDF content via iframe
                     let iframe = this.iframe.nativeElement
                     iframe.src = url;
+
+                    //let PathReportString = 'data:application/pdf;base64,' + (this.sanitizer.bypassSecurityTrustResourceUrl(Base64String) as any).changingThisBreaksApplicationSecurity;
+                    //document.getElementById('ifrm').setAttribute("src", PathReportString);
                 }
             },
             (error) => {
                 console.log(<any>error);
             }
-        );*/
-
-        let PathReportString = 'data:application/pdf;base64,' + (this.sanitizer.bypassSecurityTrustResourceUrl(pdf) as any).changingThisBreaksApplicationSecurity;
-
-        document.getElementById('ifrm').setAttribute("src", PathReportString);
-
+        );
     }
 
 

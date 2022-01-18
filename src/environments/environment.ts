@@ -4,6 +4,7 @@
 
 export const environment = {
     production: false,
-    apiUrl:  'https://pimaid.dev:8443/Cpttablero'
-    //apiUrl:  'http://localhost:8080'
+    //apiUrl:  'https://pimaid.dev:8443/Cpttablero'
+    //apiUrl:  'http://192.168.0.6:9090/Cpttablero'
+    apiUrl:  'http://3.211.231.97:8080/Cpttablero'
 };

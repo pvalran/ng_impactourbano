@@ -22,7 +22,7 @@
 								<img src="assets/images/sello.png"/>
 							</div>
 							<div fxFlex="75">
-								<span class="overview-box-count">{{ this.statistics.APPROVED }}/{{ this.isNaN((this.statistics.APPROVED/this.statistics.TOTAL) * 100) }}%</span>
+								<span class="overview-box-count">{{ this.statistics.APPROVED }}/{{ this.isNaN((this.statistics.APPROVED/this.statistics.TOTAL) * 100) | number:'1.2-2'}}%</span>
 								<span class="overview-box-name">Solicitudes aprobadas</span>
 							</div>
 						</div>
@@ -33,18 +33,19 @@
 								<img src="assets/images/rechazado.png"/>
 							</div>
 							<div fxFlex="75">
-								<span class="overview-box-count">{{ this.statistics.REJECTED }}/{{ this.isNaN((this.statistics.REJECTED*100)/this.statistics.TOTAL) }}%</span>
+								<span class="overview-box-count">{{ this.statistics.REJECTED }}/{{ this.isNaN((this.statistics.REJECTED*100)/this.statistics.TOTAL) | number:'1.2-2' }}%</span>
 								<span class="overview-box-name">Solicitudes rechazadas</span>
 							</div>
 						</div>
 					</div>
+
 					<div class="ui-g-12 ui-md-6 ui-lg-3">
 						<div id="totalEnrolmentPendiente"   class="ui-g card overview-box overview-box-1">
 							<div fxFlex="25" class="overview-box-icon">
 								<img src="assets/images/pending.png"/>
 							</div>
 							<div fxFlex="75">
-								<span class="overview-box-count">{{ this.statistics.PENDING }}/{{ this.isNaN((this.statistics.PENDING/this.statistics.TOTAL) * 100) }}%</span>
+								<span class="overview-box-count">{{ this.statistics.PENDING }}/{{ this.isNaN((this.statistics.PENDING/this.statistics.TOTAL) * 100) | number:'1.2-2' }}%</span>
 								<span class="overview-box-name">Solicitudes pendientes</span>
 							</div>
 						</div>
@@ -108,7 +109,7 @@
 					</ng-container>
 					<ng-container matColumnDef="fecha">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solictud</th>
-						<td mat-cell *matCellDef="let element"> {{element.fecha | date: 'yyyy-MM-dd'}} </td>
+						<td mat-cell *matCellDef="let element"> {{element.fecha | date: 'yyyy-MM-dd':'UTC' }} </td>
 					</ng-container>
 					<ng-container matColumnDef="crtdBy">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header>Promotor</th>
@@ -121,6 +122,10 @@
 					<ng-container matColumnDef="mobile">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header>Celular</th>
 						<td mat-cell *matCellDef="let element">{{element.mobile}}</td>
+					</ng-container>
+					<ng-container matColumnDef="enrolment">
+						<th mat-header-cell *matHeaderCellDef mat-sort-header>Enrolamiento</th>
+						<td mat-cell *matCellDef="let element">{{element.enrolment}}</td>
 					</ng-container>
 					<ng-container matColumnDef="status">
 						<th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>

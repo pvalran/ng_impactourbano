@@ -1,6 +1,11 @@
 :host ::ng-deep {
   height: 100%;
 }
+
+.app-login{
+  background-color: alpha($color: #000000);
+}
+
 .layout-content{
   width: 100%;
 }
@@ -20,7 +25,6 @@ tr:hover {
 tr:active {
   background: #efefef;
 }
-
 
 .button-tooltip {
   margin-top: 16px;

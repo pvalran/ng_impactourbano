@@ -18,12 +18,14 @@ export interface layerElement {
     folio: string;
     fecha: string;
     crtdBy: string;
+    enrolment: string;
     name: string;
     fisrtLastName: string;
     secondLastName: string;
     status: string;
     layerDocument: string;
     layerBiometic: string;
+    solicitud: number
 }
 
 let ELEMENT_DATA: layerElement[] =  []
@@ -36,11 +38,12 @@ let ELEMENT_DATA: layerElement[] =  []
     styleUrls: ['./enrolments.component.scss']
 })
 export class EnrolmentsComponent implements OnInit {
-    loading = true;
+    loading = false;
+    urlsolicitud = '';
     lyrElt:layerElement;
     userCurrent: any;
-    displayedColumns: string[] = ['folio', 'fecha', 'crtdBy','name', 'fisrtLastName','secondLastName','status',
-        'layerDocument', 'layerBiometic'];
+    displayedColumns: string[] = ['folio', 'fecha', 'crtdBy','enrolment','name', 'fisrtLastName','secondLastName','status',
+        'layerDocument', 'layerBiometic','solicitud'];
     dataSource = new MatTableDataSource<layerElement>(ELEMENT_DATA);
     pageEvent: PageEvent;
     pageSize = 10;
@@ -51,7 +54,9 @@ export class EnrolmentsComponent implements OnInit {
                 private authUser: AuthService,
                 private httpClient:HttpClient) {
         ELEMENT_DATA = [];
-        this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser())) ;
+        this.urlsolicitud = environment.apiUrl+"/pdf/solicitud/view";
+        this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser()));
+        this.dataSource.data = ELEMENT_DATA;
     }
 
     ngOnInit() {
@@ -63,23 +68,26 @@ export class EnrolmentsComponent implements OnInit {
                 if(result.data.length > 0){
                     result.data.forEach((element) => {
                         this.lyrElt = {
-                            folio: element.customer.creditId,
+                            folio: element.creditId,
                             fecha: element.crtd_on,
                             crtdBy: element.crtd_by,
+                            enrolment: element.enrolment,
                             name:  element.customer.name,
                             fisrtLastName: element.customer.paternalLastName,
                             secondLastName: element.customer.motherLastName,
                             status: element.status,
                             layerDocument: element.layerDocument,
-                            layerBiometic: element.layerBiometric
+                            layerBiometic: element.layerBiometric,
+                            solicitud: element.solicitud
                         }
                         ELEMENT_DATA.push(this.lyrElt);
-                        this.dataSource.data = ELEMENT_DATA;
                     });
+                    this.dataSource.data = ELEMENT_DATA;
+                    this.loading = true;
                 }
             },
             (error) => {
-
+                this.loading = true;
             }
         );
     }
@@ -93,17 +101,19 @@ export class EnrolmentsComponent implements OnInit {
                     folio: element.customer.creditId,
                     fecha: element.customer.birthday,
                     crtdBy: element.crtd_by,
+                    enrolment: element.enrolment,
                     name:  element.customer.name,
                     fisrtLastName: element.customer.paternalLastName,
                     secondLastName: element.customer.motherLastName,
                     status: element.status,
                     layerDocument: element.layerDocument,
-                    layerBiometic: element.layerBiometric
+                    layerBiometic: element.layerBiometric,
+                    solicitud: element.solicitud
                 }
                 ELEMENT_DATA.push(this.lyrElt);
-                this.dataSource.data = ELEMENT_DATA;
-
             });
+            this.dataSource.data = ELEMENT_DATA;
+
         }
     }
 
@@ -128,9 +138,10 @@ export class EnrolmentsComponent implements OnInit {
                         if (response.result) {
                             this.dataSource.filter = '';
                             this.dataTable(response.data);
+                            this.loading = true;
                         }
                     },
-                    (error:any) => { }
+                    (error:any) => { this.loading = true;}
                 );
         }
     }
@@ -178,5 +189,9 @@ export class EnrolmentsComponent implements OnInit {
         this.dialog.open(LayerBiometricComponent, {data: {
                 model:{dataModal: creditId} }
         });
+    }
+
+    dlgSolicitud(creditId: any){
+
     }
 }
