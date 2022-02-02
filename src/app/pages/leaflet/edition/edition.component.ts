@@ -197,6 +197,57 @@ export class EditionComponent implements OnInit {
         );
     }
 
+    down(){
+
+        let ObjUser = {
+            status_flag: 0,
+        };
+        this.loading = false;
+        this.httpClient.put<IObjRequest>(environment.apiUrl+'/forms/userboard/'+this.userId,ObjUser).subscribe(
+            (response) => {
+                if(response.result){
+                    this.document.location.reload();
+                    this.loading = true;
+                } else {
+                    this.options.message = response.message;
+                    this.dialogService.open(this.options);
+                    this.loading = true;
+                }
+            },
+            (error) => {
+                this.options.message = "Error en la actualización del usuario";
+                this.dialogService.open(this.options);
+                this.loading = true;
+            }
+        );
+    }
+
+    up(){
+
+        let ObjUser = {
+            status_flag: 1,
+        };
+        this.loading = false;
+        this.httpClient.put<IObjRequest>(environment.apiUrl+'/forms/userboard/'+this.userId,ObjUser).subscribe(
+            (response) => {
+                if(response.result){
+                    this.document.location.reload();
+                    this.loading = true;
+                } else {
+                    this.options.message = response.message;
+                    this.dialogService.open(this.options);
+                    this.loading = true;
+                }
+            },
+            (error) => {
+                this.options.message = "Error en la actualización del usuario";
+                this.dialogService.open(this.options);
+                this.loading = true;
+            }
+        );
+    }
+
+
     changePassword(){
         const passwordExp = /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{8,}$/;
         if (this.ObjUser.password != this.ObjUser.confirme_password) {

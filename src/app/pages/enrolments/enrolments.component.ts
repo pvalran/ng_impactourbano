@@ -7,9 +7,6 @@ import {LayerBiometricComponent} from "../../dialogs/layer-biometric/layer-biome
 import {LayerGovernmentComponent} from "../../dialogs/layer-government/layer-government.component";
 import {IObjRequest} from "../../interfaces/iobj-request";
 import {HttpClient, HttpResponse} from "@angular/common/http";
-
-
-
 import { environment } from "../../../environments/environment";
 import {AuthUser} from "../../interfaces/auth";
 import {AuthService} from "../../services/auth.service";
@@ -38,7 +35,7 @@ let ELEMENT_DATA: layerElement[] =  []
     styleUrls: ['./enrolments.component.scss']
 })
 export class EnrolmentsComponent implements OnInit {
-    loading = false;
+    loading = true;
     urlsolicitud = '';
     lyrElt:layerElement;
     userCurrent: any;
@@ -65,26 +62,31 @@ export class EnrolmentsComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
         this.httpClient.get<IObjRequest>(environment.apiUrl+'/catalogies/getCustomersUser/'+this.userCurrent.idUser).subscribe(
             (result) => {
-                if(result.data.length > 0){
-                    result.data.forEach((element) => {
-                        this.lyrElt = {
-                            folio: element.creditId,
-                            fecha: element.crtd_on,
-                            crtdBy: element.crtd_by,
-                            enrolment: element.enrolment,
-                            name:  element.customer.name,
-                            fisrtLastName: element.customer.paternalLastName,
-                            secondLastName: element.customer.motherLastName,
-                            status: element.status,
-                            layerDocument: element.layerDocument,
-                            layerBiometic: element.layerBiometric,
-                            solicitud: element.solicitud
-                        }
-                        ELEMENT_DATA.push(this.lyrElt);
-                    });
-                    this.dataSource.data = ELEMENT_DATA;
+                try {
+                    if (result.data.length > 0) {
+                        result.data.forEach((element) => {
+                            this.lyrElt = {
+                                folio: element.creditId,
+                                fecha: element.crtd_on,
+                                crtdBy: element.crtd_by,
+                                enrolment: element.enrolment,
+                                name: element.customer.name,
+                                fisrtLastName: element.customer.paternalLastName,
+                                secondLastName: element.customer.motherLastName,
+                                status: element.status,
+                                layerDocument: element.layerDocument,
+                                layerBiometic: element.layerBiometric,
+                                solicitud: element.solicitud
+                            }
+                            ELEMENT_DATA.push(this.lyrElt);
+                        });
+                        this.dataSource.data = ELEMENT_DATA;
+                        this.loading = true;
+                    }
+                } catch(error){
                     this.loading = true;
                 }
+
             },
             (error) => {
                 this.loading = true;
@@ -128,21 +130,23 @@ export class EnrolmentsComponent implements OnInit {
             status: "",
             search: filterValue
         }
+
+        ELEMENT_DATA = [];
+        this.dataSource.data = ELEMENT_DATA;
         this.dataSource.filter = filterValue.trim().toLowerCase();
+        this.loading = false;
         if (this.dataSource.filteredData.length == 0) {
-            ELEMENT_DATA = [];
-            this.dataSource.data = ELEMENT_DATA;
             this.httpClient.post<IObjRequest>(environment.apiUrl+"/filter/customerstransacion/search",dataFilter)
-                .subscribe(
-                    (response:any) => {
-                        if (response.result) {
-                            this.dataSource.filter = '';
-                            this.dataTable(response.data);
-                            this.loading = true;
-                        }
-                    },
-                    (error:any) => { this.loading = true;}
-                );
+            .subscribe(
+                (response:any) => {
+                    if (response.result) {
+                        this.dataSource.filter = '';
+                        this.dataTable(response.data);
+                        this.loading = true;
+                    }
+                },
+                (error:any) => { this.loading = true;}
+            );
         }
     }
 

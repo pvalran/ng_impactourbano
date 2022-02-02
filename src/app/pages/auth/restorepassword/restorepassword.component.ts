@@ -40,8 +40,7 @@ export class RestorepasswordComponent implements OnInit {
         this.httpClient.post<IObjRequest>(environment.apiUrl+'/user/user/restorepassword',ObjUser).subscribe(
             (response) => {
                 if(response.result){
-
-                    this.options.message = "Se ha enviado un correo electrónico con su nueva contraseña";
+                    this.options.message = "Se ha enviado un correo electrónico con su nueva contraseña, ingrese nuevamente";
                     this.dialogConfirm.open(this.options);
                     this.dialogConfirm.confirmed().subscribe(confirmed => {
                         if (confirmed) {
@@ -51,7 +50,6 @@ export class RestorepasswordComponent implements OnInit {
                 } else {
                     this.options.message = response.message;
                     this.dialogConfirm.open(this.options);
-
                 }
             },
             (error) => {

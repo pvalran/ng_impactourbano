@@ -72,7 +72,7 @@ export const MY_FORMATS = {
     ],
 })
 export class DashboardComponent {
-    loading = true;
+    loading = false;
     dateStart = moment().format('YYYY-MM-DD');
     dateEnd = moment().format('YYYY-MM-DD');
     status = '';
@@ -255,10 +255,10 @@ export class DashboardComponent {
             (error:any) => { console.log(error); this.loading = true;}
         );
 
+        this.loading = false;
         this.httpClient.post<IObjRequest>(environment.apiUrl+"/filter/statisticstransacion",dataFilter)
         .subscribe(
             (response:any) => {
-
                 this.statistics.TOTAL = 0;
                 this.statistics.APPROVED = 0;
                 this.statistics.REJECTED = 0;
@@ -315,8 +315,8 @@ export class DashboardComponent {
                 }
                 ELEMENT_DATA.push(this.lyrElt);
             });
-            this.dataSource.data = ELEMENT_DATA;
         }
+        this.dataSource.data = ELEMENT_DATA;
     }
 
     private isNaN (val) {
@@ -330,20 +330,26 @@ export class DashboardComponent {
             status: "",
             search: filterValue
         }
+
+        ELEMENT_DATA = [];
+        this.loading = false;
+        this.dataSource.data = ELEMENT_DATA;
         this.dataSource.filter = filterValue.trim().toLowerCase();
         if (this.dataSource.filteredData.length == 0) {
-            ELEMENT_DATA = [];
-            this.dataSource.data = ELEMENT_DATA;
             this.httpClient.post<IObjRequest>(environment.apiUrl+"/filter/customerstransacion/search",dataFilter)
-                .subscribe(
-                    (response:any) => {
-                        if (response.result) {
-                            this.dataSource.filter = '';
-                            this.dataTable(response.data);
-                        }
-                    },
-                    (error:any) => { console.log(error); }
-                );
+            .subscribe(
+                (response:any) => {
+                    if (response.result) {
+                        this.dataSource.filter = '';
+                        this.dataTable(response.data);
+                    }
+                    this.loading = true;
+                },
+                (error:any) => { this.loading = true; }
+            );
         }
     }
 }
+
+
+

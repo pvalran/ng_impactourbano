@@ -44,7 +44,13 @@
                     <button mat-flat-button (click)="registar()">Registrar usuario</button>
                 </div>
                 <div *ngIf="!userVisible" fxLayout="row" fxFlex="100" fxLayoutGap="16px" fxLayoutAlign="flex-start">
-                    <button mat-flat-button (click)="update()">Actualizar usuario</button>
+                    <button mat-flat-button color="primary" (click)="update()">Actualizar usuario</button>
+                    <button *ngIf="ObjUser.status_flag" mat-flat-button color="accent"  (click)="down()">
+                        Dar de baja usuario
+                    </button>
+                    <button *ngIf="!ObjUser.status_flag" mat-flat-button color="accent"  (click)="up()">
+                        Activar usuario
+                    </button>
                 </div>
             </div>
             <div *ngIf="passwordVisible" fxLayout="column"  fxLayoutAlign="start">

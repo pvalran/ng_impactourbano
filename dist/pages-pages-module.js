@@ -175,7 +175,7 @@ var SyncGuard = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Administración/Usuarios</h1>\n<div fxLayout=\"row wrap\">\n  <div class=\"layout-content\">\n    <div fxFlex=\"100\" class=\"ui-g dashboard\">\n      <div fxFlex=\"100\" class=\"card\">\n        <div  class=\"flex-container\"\n              fxLayout=\"row\"\n              fxLayoutAlign=\"space-between center\">\n          <button mat-flat-button (click)=\"newUser()\"><mat-icon>add_circle</mat-icon>Nuevo</button>\n          &nbsp;\n          <mat-form-field>\n            <input matInput placeholder=\"Buscar\">\n          </mat-form-field>\n\n        </div>\n        <table mat-table #table [dataSource]=\"dataSource\" matSort >\n          <ng-container matColumnDef=\"idUser\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.idUser}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"paternalLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.paternalLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"motherLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.motherLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"email\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"status_flag\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>\n            <td mat-cell *matCellDef=\"let element\"> {{ (element.status_flag == 1)? 'SI' : 'NO'}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"opciones\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" fxLayoutAlign=\"center\">\n              <button  (click)=\"editUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"primary\">info</mat-icon>\n              </button>\n              <button  (click)=\"changePasswordUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"warn\">policy</mat-icon>\n              </button>\n            </td>\n          </ng-container>\n\n          <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n          <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n        </table>\n        <mat-paginator #paginator  [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<h1 mat-dialog-title>Administración/Usuarios</h1>\n<div fxLayout=\"row wrap\">\n  <div class=\"layout-content\">\n    <div fxFlex=\"100\" class=\"ui-g dashboard\">\n      <div fxFlex=\"100\" class=\"card\">\n        <div  class=\"flex-container\"\n              fxLayout=\"row\"\n              fxLayoutAlign=\"space-between center\">\n          <button mat-flat-button (click)=\"newUser()\"><mat-icon>add_circle</mat-icon>Nuevo</button>\n          &nbsp;\n          <mat-form-field>\n            <input matInput placeholder=\"Buscar\">\n          </mat-form-field>\n\n        </div>\n        <table mat-table #table [dataSource]=\"dataSource\" matSort >\n          <ng-container matColumnDef=\"idUser\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.idUser}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"paternalLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.paternalLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"motherLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.motherLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"email\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"status_flag\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>\n            <td mat-cell *matCellDef=\"let element\"> {{ (element.status_flag == 1)? 'SI' : 'NO'}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"opciones\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" fxLayoutAlign=\"center\">\n              <button  (click)=\"editUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"primary\">info</mat-icon>\n              </button>\n              <button  (click)=\"changePasswordUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"warn\">policy</mat-icon>\n              </button>\n            </td>\n          </ng-container>\n\n          <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n          <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n        </table>\n        <mat-paginator #paginator  [pageSize]=\"10\"   [pageSizeOptions]=\"[10, 15, 20]\" showFirstLastButtons></mat-paginator>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -608,7 +608,7 @@ var UsuarioComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Administración/Sucursales</h1>\n<div fxLayout=\"row wrap\">\n    <div class=\"layout-content\">\n        <div fxFlex=\"100\" class=\"ui-g dashboard\">\n            <div fxFlex=\"100\" class=\"card\">\n                <div  class=\"flex-container\"\n                      fxLayout=\"row\"\n                      fxLayoutAlign=\"space-between center\">\n                    <button mat-flat-button (click)=\"newBranch()\"><mat-icon>add_circle</mat-icon>Nuevo</button>\n                    &nbsp;<mat-form-field>\n                    <input matInput placeholder=\"Buscar\">\n                </mat-form-field>\n                </div>\n                <table mat-table #table [dataSource]=\"dataSource\" matSort >\n                    <ng-container matColumnDef=\"id\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"name\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sucursal</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"city\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ciudad</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.city}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"state\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{ state[element.state-1]}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status_flag\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{ (element.status_flag == 1)? 'SI' : 'NO'}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"opciones\">\n                        <th mat-header-cell *matHeaderCellDef></th>\n                        <td mat-cell *matCellDef=\"let element\" fxLayoutAlign=\"center\">\n                            <button  (click)=\"editBranch(element.id)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                                <mat-icon color=\"primary\">info</mat-icon>\n                            </button>\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n                <mat-paginator #paginator  [pageSizeOptions]=\"[5, 10, 20]\" showFirstLastButtons></mat-paginator>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n"
+module.exports = "<h1 mat-dialog-title>Administración/Sucursales</h1>\n<div fxLayout=\"row wrap\">\n    <div class=\"layout-content\">\n        <div fxFlex=\"100\" class=\"ui-g dashboard\">\n            <div fxFlex=\"100\" class=\"card\">\n                <div  class=\"flex-container\"\n                      fxLayout=\"row\"\n                      fxLayoutAlign=\"space-between center\">\n                    <button mat-flat-button (click)=\"newBranch()\"><mat-icon>add_circle</mat-icon>Nuevo</button>\n                    &nbsp;<mat-form-field>\n                    <input matInput placeholder=\"Buscar\">\n                </mat-form-field>\n                </div>\n                <table mat-table #table [dataSource]=\"dataSource\" matSort >\n                    <ng-container matColumnDef=\"id\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.id}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"name\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sucursal</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"city\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ciudad</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.city}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"state\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estado</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{ state[element.state-1]}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status_flag\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{ (element.status_flag == 1)? 'SI' : 'NO'}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"opciones\">\n                        <th mat-header-cell *matHeaderCellDef></th>\n                        <td mat-cell *matCellDef=\"let element\" fxLayoutAlign=\"center\">\n                            <button  (click)=\"editBranch(element.id)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                                <mat-icon color=\"primary\">info</mat-icon>\n                            </button>\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n                <mat-paginator #paginator [pageSize]=\"10\" [pageSizeOptions]=\"[10,15,20]\" showFirstLastButtons></mat-paginator>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -971,7 +971,7 @@ var EditionBranchComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Enrolamientos</h1>\n<app-loading [hidden]=\"loading\"></app-loading>\n<div fxLayout=\"row wrap\">\n    <div class=\"layout-content\">\n        <div fxFlex=\"100\" class=\"ui-g dashboard\">\n            <div fxFlex=\"100\" class=\"card\">\n                <div fxLayout fxLayoutAlign=\"space-between center\">\n                    <mat-form-field fxFlex=\"30%\">\n                        <input matInput (keydown.enter)=\"applyFilter($event.target.value)\" placeholder=\"Buscar nombre,email\">\n                    </mat-form-field>\n                    <div fxFlex=\"30%\" fxLayoutAlign=\"end center\">\n                        <button mat-raised-button (click)=\"exportExcel()\">\n                            <mat-icon>file_download</mat-icon>&nbsp;Excel\n                        </button>\n                    </div>\n                </div>\n\n                <table mat-table #table [dataSource]=\"dataSource\" matSort >\n                    <ng-container matColumnDef=\"folio\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.folio}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fecha\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solictud</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fecha | date: 'yyyy-MM-dd':'UTC'}}  </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"crtdBy\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Promotor</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.crtdBy }} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"enrolment\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Enrolamiento</th>\n                        <td mat-cell *matCellDef=\"let element\">{{element.enrolment}}</td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"name\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fisrtLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fisrtLastName}} </td>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"secondLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.secondLastName}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.status}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerDocument\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa documento</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerDocument(element.folio)\">{{element.layerDocument}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerBiometic\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa Selfie</th>\n                        <td mat-cell *matCellDef=\"let element\"  >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerBiometric(element.folio)\"> {{element.layerBiometic}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"solicitud\" >\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Solicitud</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a  [href]=\"urlsolicitud+'/'+ element.folio\" target=\"_blank\" mat-icon-button matTooltip=\"Solicitud de credito\" matTooltipClass=\"tooltip\">\n                                <mat-icon>assignment</mat-icon>\n                            </a>\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n                <mat-paginator  #paginator\n                                [pageSize]=\"pageSize\"\n                                [pageSizeOptions]=\"[5, 10, 20]\"\n                                (page)=\"pageEvent = $event\"\n                                showFirstLastButtons></mat-paginator>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n"
+module.exports = "<h1 mat-dialog-title>Enrolamientos</h1>\n<app-loading [hidden]=\"loading\"></app-loading>\n<div fxLayout=\"row wrap\">\n    <div class=\"layout-content\">\n        <div fxFlex=\"100\" class=\"ui-g dashboard\">\n            <div fxFlex=\"100\" class=\"card\">\n                <div fxLayout fxLayoutAlign=\"space-between center\">\n                    <mat-form-field fxFlex=\"30%\">\n                        <input matInput (keydown.enter)=\"applyFilter($event.target.value)\" placeholder=\"Buscar nombre,email\">\n                    </mat-form-field>\n                    <div fxFlex=\"30%\" fxLayoutAlign=\"end center\">\n                        <button mat-raised-button (click)=\"exportExcel()\">\n                            <mat-icon>file_download</mat-icon>&nbsp;Excel\n                        </button>\n                    </div>\n                </div>\n\n                <table mat-table #table [dataSource]=\"dataSource\" matSort >\n                    <ng-container matColumnDef=\"folio\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Folio</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.folio}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fecha\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha Solictud</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fecha | date: 'yyyy-MM-dd':'UTC'}}  </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"crtdBy\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Promotor</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.crtdBy }} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"enrolment\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Enrolamiento</th>\n                        <td mat-cell *matCellDef=\"let element\">{{element.enrolment}}</td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"name\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"fisrtLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.fisrtLastName}} </td>\n                    </ng-container>\n\n                    <ng-container matColumnDef=\"secondLastName\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.secondLastName}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"status\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>\n                        <td mat-cell *matCellDef=\"let element\"> {{element.status}} </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerDocument\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa documento</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerDocument(element.folio)\">{{element.layerDocument}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"layerBiometic\">\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Capa Selfie</th>\n                        <td mat-cell *matCellDef=\"let element\"  >\n                            <a mat-icon-button class=\"text-link\" (click)=\"dlgLayerBiometric(element.folio)\"> {{element.layerBiometic}}</a>\n                        </td>\n                    </ng-container>\n                    <ng-container matColumnDef=\"solicitud\" >\n                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Solicitud</th>\n                        <td mat-cell *matCellDef=\"let element\" >\n                            <a  [href]=\"urlsolicitud+'/'+ element.folio\" target=\"_blank\" mat-icon-button matTooltip=\"Solicitud de credito\" matTooltipClass=\"tooltip\">\n                                <mat-icon>assignment</mat-icon>\n                            </a>\n                        </td>\n                    </ng-container>\n                    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                </table>\n                <mat-paginator  #paginator\n                                [pageSize]=10\n                                [pageSizeOptions]=\"[10, 15, 20]\"\n                                (page)=\"pageEvent = $event\"\n                                showFirstLastButtons></mat-paginator>\n            </div>\n        </div>\n    </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1029,7 +1029,7 @@ var EnrolmentsComponent = /** @class */ (function () {
         this.dialog = dialog;
         this.authUser = authUser;
         this.httpClient = httpClient;
-        this.loading = false;
+        this.loading = true;
         this.urlsolicitud = '';
         this.displayedColumns = ['folio', 'fecha', 'crtdBy', 'enrolment', 'name', 'fisrtLastName', 'secondLastName', 'status',
             'layerDocument', 'layerBiometic', 'solicitud'];
@@ -1038,6 +1038,7 @@ var EnrolmentsComponent = /** @class */ (function () {
         ELEMENT_DATA = [];
         this.urlsolicitud = _environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl + "/pdf/solicitud/view";
         this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser()));
+        this.dataSource.data = ELEMENT_DATA;
     }
     EnrolmentsComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1045,24 +1046,29 @@ var EnrolmentsComponent = /** @class */ (function () {
         ELEMENT_DATA = [];
         this.dataSource.paginator = this.paginator;
         this.httpClient.get(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl + '/catalogies/getCustomersUser/' + this.userCurrent.idUser).subscribe(function (result) {
-            if (result.data.length > 0) {
-                result.data.forEach(function (element) {
-                    _this.lyrElt = {
-                        folio: element.creditId,
-                        fecha: element.crtd_on,
-                        crtdBy: element.crtd_by,
-                        enrolment: element.enrolment,
-                        name: element.customer.name,
-                        fisrtLastName: element.customer.paternalLastName,
-                        secondLastName: element.customer.motherLastName,
-                        status: element.status,
-                        layerDocument: element.layerDocument,
-                        layerBiometic: element.layerBiometric,
-                        solicitud: element.solicitud
-                    };
-                    ELEMENT_DATA.push(_this.lyrElt);
-                });
-                _this.dataSource.data = ELEMENT_DATA;
+            try {
+                if (result.data.length > 0) {
+                    result.data.forEach(function (element) {
+                        _this.lyrElt = {
+                            folio: element.creditId,
+                            fecha: element.crtd_on,
+                            crtdBy: element.crtd_by,
+                            enrolment: element.enrolment,
+                            name: element.customer.name,
+                            fisrtLastName: element.customer.paternalLastName,
+                            secondLastName: element.customer.motherLastName,
+                            status: element.status,
+                            layerDocument: element.layerDocument,
+                            layerBiometic: element.layerBiometric,
+                            solicitud: element.solicitud
+                        };
+                        ELEMENT_DATA.push(_this.lyrElt);
+                    });
+                    _this.dataSource.data = ELEMENT_DATA;
+                    _this.loading = true;
+                }
+            }
+            catch (error) {
                 _this.loading = true;
             }
         }, function (error) {
@@ -1104,10 +1110,11 @@ var EnrolmentsComponent = /** @class */ (function () {
             status: "",
             search: filterValue
         };
+        ELEMENT_DATA = [];
+        this.dataSource.data = ELEMENT_DATA;
         this.dataSource.filter = filterValue.trim().toLowerCase();
+        this.loading = false;
         if (this.dataSource.filteredData.length == 0) {
-            ELEMENT_DATA = [];
-            this.dataSource.data = ELEMENT_DATA;
             this.httpClient.post(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl + "/filter/customerstransacion/search", dataFilter)
                 .subscribe(function (response) {
                 if (response.result) {
@@ -1190,7 +1197,7 @@ var EnrolmentsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-loading [hidden]=\"loading\"></app-loading>\n<h1 mat-dialog-title style=\"margin-bottom:4px;\">Registro de prospecto</h1>\n<h4 class=\"body\" style=\"margin: 0px 0px 12px 0px;\">\n    <mat-label fxFlex=\"100\" class=\"mat-caption\">Todos los campos son obligatorios</mat-label>\n</h4>\n<div mat-dialog-content>\n    <div class=\"container\">\n        <div id=\"content\">\n            <div *ngIf=\"!passwordVisible\" fxLayout=\"column\"  fxLayoutAlign=\"start\">\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"50\" fxFlex.sm=\"100\">\n                        <mat-label>Apellido paterno</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.paternalLastName\" placeholder=\"Apellido paterno\">\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\" fxFlex.sm=\"100\">\n                        <mat-label>Apellido materno</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.motherLastName\" placeholder=\"Apellido materno\">\n                    </mat-form-field>\n                </div>\n                <div fxLayout=\"row\">\n                    <mat-form-field fxFlex=\"100\">\n                        <mat-label>Nombre del usuario</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.name\" placeholder=\"Nombre del usuario\">\n                    </mat-form-field>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"50\"  fxFlex.sm=\"100\">\n                        <mat-label>Correo electronico</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.email\" placeholder=\"Correo electronico\">\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\"  fxFlex.sm=\"100\">\n                        <mat-label>Confirmación de correo electronico</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.confirme_email\" placeholder=\"Confirme correo electronico\">\n                    </mat-form-field>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"50\"  fxFlex.sm=\"100\">\n                        <mat-label>Número telefonico de contacto</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.phone\" placeholder=\"Número telefonico de contacto\">\n                    </mat-form-field>\n                </div>\n                <div *ngIf=\"userVisible\" fxLayout=\"row\" fxFlex=\"100\"\n                     fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <button mat-flat-button (click)=\"registar()\">Registrar usuario</button>\n                </div>\n                <div *ngIf=\"!userVisible\" fxLayout=\"row\" fxFlex=\"100\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <button mat-flat-button (click)=\"update()\">Actualizar usuario</button>\n                </div>\n            </div>\n            <div *ngIf=\"passwordVisible\" fxLayout=\"column\"  fxLayoutAlign=\"start\">\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"100\"  fxFlex.sm=\"100\">\n                        <mat-label>Correo electronico</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.email\" placeholder=\"Correo electronico\">\n                    </mat-form-field>\n\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <button mat-raised-button (click)=\"sendEmail()\" color=\"primary\" fxFill fxFlexFill>Enviar correo</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
+module.exports = "<app-loading [hidden]=\"loading\"></app-loading>\n<h1 mat-dialog-title style=\"margin-bottom:4px;\">Registro de prospecto</h1>\n<h4 class=\"body\" style=\"margin: 0px 0px 12px 0px;\">\n    <mat-label fxFlex=\"100\" class=\"mat-caption\">Todos los campos son obligatorios</mat-label>\n</h4>\n<div mat-dialog-content>\n    <div class=\"container\">\n        <div id=\"content\">\n            <div *ngIf=\"!passwordVisible\" fxLayout=\"column\"  fxLayoutAlign=\"start\">\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"50\" fxFlex.sm=\"100\">\n                        <mat-label>Apellido paterno</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.paternalLastName\" placeholder=\"Apellido paterno\">\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\" fxFlex.sm=\"100\">\n                        <mat-label>Apellido materno</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.motherLastName\" placeholder=\"Apellido materno\">\n                    </mat-form-field>\n                </div>\n                <div fxLayout=\"row\">\n                    <mat-form-field fxFlex=\"100\">\n                        <mat-label>Nombre del usuario</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.name\" placeholder=\"Nombre del usuario\">\n                    </mat-form-field>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"50\"  fxFlex.sm=\"100\">\n                        <mat-label>Correo electronico</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.email\" placeholder=\"Correo electronico\">\n                    </mat-form-field>\n                    <mat-form-field fxFlex=\"50\"  fxFlex.sm=\"100\">\n                        <mat-label>Confirmación de correo electronico</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.confirme_email\" placeholder=\"Confirme correo electronico\">\n                    </mat-form-field>\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"50\"  fxFlex.sm=\"100\">\n                        <mat-label>Número telefonico de contacto</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.phone\" placeholder=\"Número telefonico de contacto\">\n                    </mat-form-field>\n                </div>\n                <div *ngIf=\"userVisible\" fxLayout=\"row\" fxFlex=\"100\"\n                     fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <button mat-flat-button (click)=\"registar()\">Registrar usuario</button>\n                </div>\n                <div *ngIf=\"!userVisible\" fxLayout=\"row\" fxFlex=\"100\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <button mat-flat-button color=\"primary\" (click)=\"update()\">Actualizar usuario</button>\n                    <button *ngIf=\"ObjUser.status_flag\" mat-flat-button color=\"accent\"  (click)=\"down()\">\n                        Dar de baja usuario\n                    </button>\n                    <button *ngIf=\"!ObjUser.status_flag\" mat-flat-button color=\"accent\"  (click)=\"up()\">\n                        Activar usuario\n                    </button>\n                </div>\n            </div>\n            <div *ngIf=\"passwordVisible\" fxLayout=\"column\"  fxLayoutAlign=\"start\">\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <mat-form-field fxFlex=\"100\"  fxFlex.sm=\"100\">\n                        <mat-label>Correo electronico</mat-label>\n                        <input matInput [(ngModel)]=\"ObjUser.email\" placeholder=\"Correo electronico\">\n                    </mat-form-field>\n\n                </div>\n                <div fxLayout=\"row\" fxLayoutGap=\"16px\" fxLayoutAlign=\"flex-start\">\n                    <button mat-raised-button (click)=\"sendEmail()\" color=\"primary\" fxFill fxFlexFill>Enviar correo</button>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1403,6 +1410,50 @@ var EditionComponent = /** @class */ (function () {
             _this.loading = true;
         });
     };
+    EditionComponent.prototype.down = function () {
+        var _this = this;
+        var ObjUser = {
+            status_flag: 0,
+        };
+        this.loading = false;
+        this.httpClient.put(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl + '/forms/userboard/' + this.userId, ObjUser).subscribe(function (response) {
+            if (response.result) {
+                _this.document.location.reload();
+                _this.loading = true;
+            }
+            else {
+                _this.options.message = response.message;
+                _this.dialogService.open(_this.options);
+                _this.loading = true;
+            }
+        }, function (error) {
+            _this.options.message = "Error en la actualización del usuario";
+            _this.dialogService.open(_this.options);
+            _this.loading = true;
+        });
+    };
+    EditionComponent.prototype.up = function () {
+        var _this = this;
+        var ObjUser = {
+            status_flag: 1,
+        };
+        this.loading = false;
+        this.httpClient.put(_environments_environment__WEBPACK_IMPORTED_MODULE_7__["environment"].apiUrl + '/forms/userboard/' + this.userId, ObjUser).subscribe(function (response) {
+            if (response.result) {
+                _this.document.location.reload();
+                _this.loading = true;
+            }
+            else {
+                _this.options.message = response.message;
+                _this.dialogService.open(_this.options);
+                _this.loading = true;
+            }
+        }, function (error) {
+            _this.options.message = "Error en la actualización del usuario";
+            _this.dialogService.open(_this.options);
+            _this.loading = true;
+        });
+    };
     EditionComponent.prototype.changePassword = function () {
         var _this = this;
         var passwordExp = /^(?=(?:.*\d){1})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){1})\S{8,}$/;
@@ -1490,7 +1541,7 @@ var EditionComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Administración/Propectos</h1>\n<div fxLayout=\"row wrap\">\n  <div class=\"layout-content\">\n    <div fxFlex=\"100\" class=\"ui-g dashboard\">\n      <div fxFlex=\"100\" class=\"card\">\n        <div  class=\"flex-container\"\n              fxLayout=\"row\"\n              fxLayout.xs=\"column\"\n              fxLayoutAlign=\"space-between center\"\n              fxLayout.xs=\"start center\"\n        >\n          <button mat-flat-button (click)=\"newUser()\"><mat-icon>add_circle</mat-icon>Nuevo</button>\n          &nbsp;\n            <mat-form-field fxFlex=\"30%\">\n              <input matInput placeholder=\"Buscar\">\n            </mat-form-field>\n\n          <div fxFlex=\"30%\" fxLayoutAlign=\"end center\">\n            <button mat-raised-button (click)=\"exportExcel()\">\n              <mat-icon>file_download</mat-icon>&nbsp;Excel\n            </button>\n          </div>\n        </div>\n        <table mat-table #table [dataSource]=\"dataSource\" matSort >\n          <ng-container matColumnDef=\"idUser\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.idUser}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"paternalLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.paternalLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"motherLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.motherLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"email\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"status_flag\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>\n            <td mat-cell *matCellDef=\"let element\"> {{ (element.status_flag == 1)? 'SI' : 'NO'}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"opciones\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" fxLayoutAlign=\"center\">\n              <button  (click)=\"editUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"primary\">info</mat-icon>\n              </button>\n              <button  (click)=\"changePasswordUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"warn\">policy</mat-icon>\n              </button>\n            </td>\n          </ng-container>\n\n          <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n          <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n        </table>\n        <mat-paginator #paginator  [pageSize]=\"pageSize\"\n                       [pageSizeOptions]=\"[5, 10, 20]\"\n                       (page)=\"pageEvent = $event\"\n                       showFirstLastButtons></mat-paginator>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<h1 mat-dialog-title>Administración/Propectos</h1>\n<div fxLayout=\"row wrap\">\n  <div class=\"layout-content\">\n    <div fxFlex=\"100\" class=\"ui-g dashboard\">\n      <div fxFlex=\"100\" class=\"card\">\n        <div  class=\"flex-container\"\n              fxLayout=\"row\"\n              fxLayout.xs=\"column\"\n              fxLayoutAlign=\"space-between center\"\n              fxLayout.xs=\"start center\"\n        >\n          <button mat-flat-button (click)=\"newUser()\"><mat-icon>add_circle</mat-icon>Nuevo</button>\n          &nbsp;\n            <mat-form-field fxFlex=\"30%\">\n              <input matInput (keydown.enter)=\"applyFilter($event.target.value)\" placeholder=\"Buscar\">\n            </mat-form-field>\n\n          <div fxFlex=\"30%\" fxLayoutAlign=\"end center\">\n            <button mat-raised-button (click)=\"exportExcel()\">\n              <mat-icon>file_download</mat-icon>&nbsp;Excel\n            </button>\n          </div>\n        </div>\n        <table mat-table #table [dataSource]=\"dataSource\" matSort >\n          <ng-container matColumnDef=\"idUser\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.idUser}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"name\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"paternalLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido paterno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.paternalLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"motherLastName\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido materno</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.motherLastName}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"email\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>\n            <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"status_flag\">\n            <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>\n            <td mat-cell *matCellDef=\"let element\"> {{ (element.status_flag == 1)? 'SI' : 'NO'}} </td>\n          </ng-container>\n          <ng-container matColumnDef=\"opciones\">\n            <th mat-header-cell *matHeaderCellDef></th>\n            <td mat-cell *matCellDef=\"let element\" fxLayoutAlign=\"center\">\n              <button  (click)=\"editUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"primary\">info</mat-icon>\n              </button>\n              <button  (click)=\"sendEmail(element.idUser)\" mat-icon-button matTooltip=\"Reenvio del correo de link de APK\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"accent\">email</mat-icon>\n              </button>\n              <button  (click)=\"changePasswordUser(element.idUser)\" mat-icon-button matTooltip=\"Datos Generales del Enrolamiento\" matTooltipClass=\"tooltip\">\n                <mat-icon color=\"warn\">policy</mat-icon>\n              </button>\n            </td>\n          </ng-container>\n\n          <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n          <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n        </table>\n        <mat-paginator #paginator  [pageSize]=10\n                       [pageSizeOptions]=\"[10, 15, 20]\"\n                       (page)=\"pageEvent = $event\"\n                       showFirstLastButtons></mat-paginator>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -1523,6 +1574,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../environments/environment */ "./src/environments/environment.ts");
 /* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _services_confirm_dialog_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../services/confirm-dialog.service */ "./src/app/services/confirm-dialog.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1540,16 +1592,24 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var ELEMENT_DATA = [];
 var LeafletComponent = /** @class */ (function () {
-    function LeafletComponent(dialog, httpClient, authUser) {
+    function LeafletComponent(dialog, httpClient, dialogService, authUser) {
         this.dialog = dialog;
         this.httpClient = httpClient;
+        this.dialogService = dialogService;
         this.authUser = authUser;
         this.loading = true;
         this.pageSize = 10;
         this.displayedColumns = ['idUser', 'name', 'paternalLastName', 'motherLastName', 'email', 'status_flag', 'opciones'];
         this.dataSource = new _angular_material_table__WEBPACK_IMPORTED_MODULE_1__["MatTableDataSource"](ELEMENT_DATA);
+        this.options = {
+            title: 'ATENCION',
+            message: '',
+            cancelText: null,
+            confirmText: 'CERRAR'
+        };
         this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser()));
     }
     LeafletComponent.prototype.ngOnInit = function () {
@@ -1583,9 +1643,6 @@ var LeafletComponent = /** @class */ (function () {
             }
         }, function (error) {
         });
-    };
-    LeafletComponent.prototype.applyFilter = function (filterValue) {
-        this.dataSource.filter = filterValue.trim().toLowerCase();
     };
     LeafletComponent.prototype.newUser = function () {
         var dialogConfig = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialogConfig"]();
@@ -1635,6 +1692,64 @@ var LeafletComponent = /** @class */ (function () {
             }
         });
     };
+    LeafletComponent.prototype.sendEmail = function (idUser) {
+        var _this = this;
+        this.loading = false;
+        this.httpClient.get(_environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].apiUrl + "/forms/userboard/app/resendLink/" + idUser)
+            .subscribe(function (response) {
+            if (response.result === true) {
+                _this.options.message = "Se ha envio el correo con el link para descargar del APK de Credito Para Ti";
+                _this.dialogService.open(_this.options);
+            }
+            else {
+                _this.options.message = "Error no se ha envio el correo del link para la descargar del APK de Credito Para Ti";
+                _this.dialogService.open(_this.options);
+            }
+            _this.loading = true;
+        }, function (error) {
+            console.log(error);
+            _this.loading = true;
+        });
+    };
+    LeafletComponent.prototype.applyFilter = function (filterValue) {
+        var _this = this;
+        var dataFilter = {
+            promotor: this.userCurrent.idUser,
+            search: filterValue
+        };
+        ELEMENT_DATA = [];
+        this.loading = false;
+        this.dataSource.data = ELEMENT_DATA;
+        if (this.dataSource.filteredData.length == 0) {
+            this.httpClient.post(_environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].apiUrl + "/filter/leafletUser/search/" + this.userCurrent.idUser, dataFilter)
+                .subscribe(function (response) {
+                if (response.data.length > 0) {
+                    response.data.forEach(function (element) {
+                        _this.lyrUser = {
+                            idUser: element.idUser,
+                            name: element.name,
+                            paternalLastName: element.paternalLastName,
+                            motherLastName: element.motherLastName,
+                            email: element.email,
+                            profileId: element.profileId,
+                            confirme_email: element.email,
+                            password: '',
+                            confirme_password: '',
+                            status_flag: element.status_flag,
+                            phone: "",
+                            sucursal: 1
+                        };
+                        ELEMENT_DATA.push(_this.lyrUser);
+                        _this.dataSource.data = ELEMENT_DATA;
+                        _this.loading = true;
+                    });
+                }
+                else {
+                    _this.loading = true;
+                }
+            }, function (error) { _this.loading = true; });
+        }
+    };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])(_angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"]),
         __metadata("design:type", _angular_material_paginator__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"])
@@ -1647,6 +1762,7 @@ var LeafletComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_3__["MatDialog"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"],
+            _services_confirm_dialog_service__WEBPACK_IMPORTED_MODULE_8__["ConfirmDialogService"],
             _services_auth_service__WEBPACK_IMPORTED_MODULE_7__["AuthService"]])
     ], LeafletComponent);
     return LeafletComponent;

@@ -1072,20 +1072,20 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\quill\dist\quill.snow.css */"./node_modules/quill/dist/quill.snow.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\quill\dist\quill.bubble.css */"./node_modules/quill/dist/quill.bubble.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\dragula\dist\dragula.css */"./node_modules/dragula/dist/dragula.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\leaflet\dist\leaflet.css */"./node_modules/leaflet/dist/leaflet.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\angular-calendar\scss\angular-calendar.scss */"./node_modules/angular-calendar/scss/angular-calendar.scss");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\@swimlane\ngx-datatable\release\index.css */"./node_modules/@swimlane/ngx-datatable/release/index.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\@swimlane\ngx-datatable\release\themes\material.css */"./node_modules/@swimlane/ngx-datatable/release/themes/material.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\assets\fonts\pe\css\pe-icon-set-weather.css */"./src/assets/fonts/pe/css/pe-icon-set-weather.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\assets\fonts\data-table\icons.css */"./src/assets/fonts/data-table/icons.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\assets\styles\highlightjs\material-light.css */"./src/assets/styles/highlightjs/material-light.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\assets\styles\ui.css */"./src/assets/styles/ui.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\node_modules\jquery-ui-dist\jquery-ui.css */"./node_modules/jquery-ui-dist/jquery-ui.css");
-__webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\styles.scss */"./src/styles.scss");
-module.exports = __webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\assets\styles\app.scss */"./src/assets/styles/app.scss");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\quill\dist\quill.snow.css */"./node_modules/quill/dist/quill.snow.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\quill\dist\quill.bubble.css */"./node_modules/quill/dist/quill.bubble.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\dragula\dist\dragula.css */"./node_modules/dragula/dist/dragula.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\leaflet\dist\leaflet.css */"./node_modules/leaflet/dist/leaflet.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\angular-calendar\scss\angular-calendar.scss */"./node_modules/angular-calendar/scss/angular-calendar.scss");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\@swimlane\ngx-datatable\release\index.css */"./node_modules/@swimlane/ngx-datatable/release/index.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\@swimlane\ngx-datatable\release\themes\material.css */"./node_modules/@swimlane/ngx-datatable/release/themes/material.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\assets\fonts\pe\css\pe-icon-set-weather.css */"./src/assets/fonts/pe/css/pe-icon-set-weather.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\assets\fonts\data-table\icons.css */"./src/assets/fonts/data-table/icons.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\assets\styles\highlightjs\material-light.css */"./src/assets/styles/highlightjs/material-light.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\assets\styles\ui.css */"./src/assets/styles/ui.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\node_modules\jquery-ui-dist\jquery-ui.css */"./node_modules/jquery-ui-dist/jquery-ui.css");
+__webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\styles.scss */"./src/styles.scss");
+module.exports = __webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\assets\styles\app.scss */"./src/assets/styles/app.scss");
 
 
 /***/ })

@@ -9,6 +9,7 @@ import { User } from "../../interfaces/user";
 import { environment } from "../../../environments/environment";
 import {layerElement} from "../enrolments/enrolments.component";
 import {AuthService} from "../../services/auth.service";
+import {ConfirmDialogService} from "../../services/confirm-dialog.service";
 
 
 let ELEMENT_DATA: User[] =  []
@@ -27,10 +28,19 @@ export class LeafletComponent implements OnInit {
     displayedColumns: string[] = ['idUser','name', 'paternalLastName','motherLastName','email','status_flag','opciones'];
     dataSource = new MatTableDataSource<User>(ELEMENT_DATA);
 
+    options = {
+        title: 'ATENCION',
+        message: '',
+        cancelText: null,
+        confirmText: 'CERRAR'
+    };
+
+
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(public dialog: MatDialog,
                 private httpClient: HttpClient,
+                private dialogService: ConfirmDialogService,
                 private authUser:AuthService) {
         this.userCurrent = JSON.parse(JSON.parse(this.authUser.getCurrentUser())) ;
     }
@@ -70,10 +80,6 @@ export class LeafletComponent implements OnInit {
 
             }
         );
-    }
-
-    applyFilter(filterValue: string) {
-        this.dataSource.filter = filterValue.trim().toLowerCase();
     }
 
     newUser(){
@@ -125,5 +131,70 @@ export class LeafletComponent implements OnInit {
                 model:{dataModal: idUser,
                     dataPassword:true} }
         });
+    }
+
+    sendEmail(idUser: any){
+        this.loading = false;
+        this.httpClient.get<IObjRequest>(environment.apiUrl+"/forms/userboard/app/resendLink/"+idUser)
+        .subscribe(
+            (response) => {
+                if (response.result === true) {
+                    this.options.message = "Se ha envio el correo con el link para descargar del APK de Credito Para Ti";
+                    this.dialogService.open(this.options);
+
+                } else {
+                    this.options.message = "Error no se ha envio el correo del link para la descargar del APK de Credito Para Ti";
+                    this.dialogService.open(this.options);
+                }
+                this.loading = true;
+            },
+            (error:any) => {
+                console.log(error);
+                this.loading = true;
+            }
+        );
+    }
+
+    applyFilter(filterValue: string) {
+        let dataFilter = {
+            promotor: this.userCurrent.idUser,
+            search: filterValue
+        }
+
+        ELEMENT_DATA = [];
+        this.loading = false;
+        this.dataSource.data = ELEMENT_DATA;
+        if (this.dataSource.filteredData.length == 0) {
+            this.httpClient.post<IObjRequest>(environment.apiUrl+"/filter/leafletUser/search/"+this.userCurrent.idUser,dataFilter)
+            .subscribe(
+                (response) => {
+                    if(response.data.length > 0){
+                        response.data.forEach((element) => {
+                            this.lyrUser = {
+                                idUser: element.idUser,
+                                name: element.name,
+                                paternalLastName:  element.paternalLastName,
+                                motherLastName:  element.motherLastName,
+                                email: element.email,
+                                profileId:  element.profileId,
+                                confirme_email: element.email,
+                                password: '',
+                                confirme_password: '',
+                                status_flag:element.status_flag,
+                                phone:"",
+                                sucursal:1
+                            }
+                            ELEMENT_DATA.push( this.lyrUser);
+                            this.dataSource.data = ELEMENT_DATA;
+                            this.loading = true;
+                        });
+                    } else {
+                        this.loading = true;
+                    }
+
+                },
+                (error:any) => { this.loading = true; }
+            );
+        }
     }
 }

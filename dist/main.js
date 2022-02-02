@@ -2926,8 +2926,12 @@ var ChangePasswordComponent = /** @class */ (function () {
         this.loading = false;
         this.httpClient.put(_environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl + '/forms/employee/' + this.userCurrent.idUser, ObjUser).subscribe(function (response) {
             if (response.result) {
-                _this.loading = false;
-                _this.router.navigate(['/']);
+                _this.options.message = "Su contraseña ha sido actualizada, ingrese nuevamente";
+                _this.dialogConfirm.open(_this.options);
+                _this.dialogConfirm.confirmed().subscribe(function (data) {
+                    _this.loading = true;
+                    _this.router.navigate(['/']);
+                });
             }
             else {
                 _this.options.message = response.message;
@@ -3035,7 +3039,7 @@ var RestorepasswordComponent = /** @class */ (function () {
         };
         this.httpClient.post(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiUrl + '/user/user/restorepassword', ObjUser).subscribe(function (response) {
             if (response.result) {
-                _this.options.message = "Se ha enviado un correo electrónico con su nueva contraseña";
+                _this.options.message = "Se ha enviado un correo electrónico con su nueva contraseña, ingrese nuevamente";
                 _this.dialogConfirm.open(_this.options);
                 _this.dialogConfirm.confirmed().subscribe(function (confirmed) {
                     if (confirmed) {
@@ -3970,9 +3974,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    //apiUrl:  'https://pimaid.dev:8443/Cpttablero'
-    //apiUrl:  'http://192.168.0.6:9090/Cpttablero'
-    apiUrl: 'http://3.211.231.97:8080/Cpttablero'
+    apiUrl: 'https://pima-id.net:8443/CptProdTablero'
 };
 
 
@@ -4011,7 +4013,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! c:\developer\cnvsoltek\pima\tablero\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\developer\cnvsoltek\pima\tablero\src\main.ts */"./src/main.ts");
 
 
 /***/ })

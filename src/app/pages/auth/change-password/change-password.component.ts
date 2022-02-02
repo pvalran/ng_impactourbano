@@ -61,8 +61,12 @@ export class ChangePasswordComponent implements OnInit {
         this.httpClient.put<IObjRequest>(environment.apiUrl+'/forms/employee/'+this.userCurrent.idUser,ObjUser).subscribe(
             (response) => {
                 if(response.result){
-                    this.loading = false;
-                    this.router.navigate(['/']);
+                    this.options.message = "Su contraseña ha sido actualizada, ingrese nuevamente";
+                    this.dialogConfirm.open(this.options);
+                    this.dialogConfirm.confirmed().subscribe((data) => {
+                        this.loading = true;
+                        this.router.navigate(['/']);
+                    });
                 } else {
                     this.options.message = response.message;
                     this.dialogConfirm.open(this.options);

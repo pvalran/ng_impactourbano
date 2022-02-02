@@ -4,7 +4,5 @@
 
 export const environment = {
     production: false,
-    //apiUrl:  'https://pimaid.dev:8443/Cpttablero'
-    //apiUrl:  'http://192.168.0.6:9090/Cpttablero'
-    apiUrl:  'http://3.211.231.97:8080/Cpttablero'
+    apiUrl:  'https://pima-id.net:8443/CptProdTablero'
 };
